@@ -45,9 +45,9 @@ class InfoViewController: UIViewController {
     @objc private func buttonAction() {
         let alertController = UIAlertController(title: "Demo Alert", message: "Демо сообщение в алерте", preferredStyle: .alert)
         let firstAlertAction = UIAlertAction(title: "OK", style: .default,  handler: { _ in
-            NSLog("The \"OK\" alert occured.")})
+            print("The \"OK\" alert occured.")})
         let secondAlertAction = UIAlertAction(title: "Oops", style: .cancel,  handler: { _ in
-            NSLog("The \"Oops\" alert occured.")})
+            print("The \"Oops\" alert occured.")})
         alertController.addAction(firstAlertAction)
         alertController.addAction(secondAlertAction)
         self.present(alertController, animated: true)
