@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         title = "Профиль"
         view.backgroundColor = .lightGray
+        
     }
     
     override func viewWillLayoutSubviews() {
