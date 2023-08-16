@@ -12,34 +12,48 @@ class FeedViewController: UIViewController {
     private lazy var actionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemCyan
-        button.setTitle("Показать пост", for: .normal)        
-        button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Показать пост", for: .normal)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var secondActionButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemCyan
+        button.setTitle("Показать пост", for: .normal)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var feedStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.addArrangedSubview(actionButton)
+        stackView.addArrangedSubview(secondActionButton)
+        return stackView
     }()
     
     var post = Post(title: "Первый пост")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(actionButton)
+        self.view.addSubview(feedStackView)
         title = "Лента"
         
-        let safeAreaLayoutGuide = view.safeAreaLayoutGuide
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        let safeAreaGuide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            actionButton.leadingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.leadingAnchor,
-                constant: 20.0
-            ),
-            actionButton.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor,
-                constant: -20.0
-            ),
-            actionButton.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            actionButton.heightAnchor.constraint(equalToConstant: 44.0)
-        ])
-        
-        actionButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            feedStackView.centerXAnchor.constraint(equalTo: safeAreaGuide.centerXAnchor),
+            feedStackView.centerYAnchor.constraint(equalTo: safeAreaGuide.centerYAnchor),
+            feedStackView.leftAnchor.constraint(equalTo: safeAreaGuide.leftAnchor),
+            feedStackView.rightAnchor.constraint(equalTo: safeAreaGuide.rightAnchor)
+       ])
+
     }
     
     @objc private func buttonAction() {
