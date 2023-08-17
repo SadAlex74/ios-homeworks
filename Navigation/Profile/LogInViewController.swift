@@ -33,22 +33,24 @@ class LogInViewController: UIViewController {
         return view
     }()
     
-    private lazy var emailTextField: TextFieldWithPadding = {
+    private lazy var emailTextField: TextFieldWithPadding = { [unowned self] in
         let textField = TextFieldWithPadding()
         textField.placeholder = "Email or phone"
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.delegate = self
         return textField
     }()
     
-    private lazy var passwordTextField: TextFieldWithPadding = {
+    private lazy var passwordTextField: TextFieldWithPadding = { [unowned self] in
         let textField = TextFieldWithPadding()
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.delegate = self
         return textField
     }()
     
