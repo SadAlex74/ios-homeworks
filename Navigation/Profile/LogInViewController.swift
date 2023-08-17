@@ -15,6 +15,7 @@ class LogInViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInset.bottom = 100
         return scrollView
     }()
     
