@@ -12,10 +12,9 @@ class LogInViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
-        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentInset.bottom = 100
         return scrollView
     }()
     
@@ -161,7 +160,7 @@ class LogInViewController: UIViewController {
     
     @objc func willShowKeyboard(_ notification: NSNotification) {
         let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
-        scrollView.contentInset.bottom += keyboardHeight ?? 0.0
+        scrollView.contentInset.bottom = keyboardHeight ?? 0.0
     }
     
     @objc func willHideKeyboard(_ notification: NSNotification) {
