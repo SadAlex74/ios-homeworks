@@ -17,6 +17,7 @@
 		62161FEF2A818A4B000360F9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FEE2A818A4B000360F9 /* InfoViewController.swift */; };
 		62AD4E862A854DE300B7F91C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E852A854DE300B7F91C /* ProfileViewController.swift */; };
 		62AD4E882A854E0400B7F91C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */; };
+		62AD4E8A2A8E875200B7F91C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E892A8E875200B7F91C /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		62161FEE2A818A4B000360F9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		62AD4E852A854DE300B7F91C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		62AD4E892A8E875200B7F91C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */,
 				62AD4E852A854DE300B7F91C /* ProfileViewController.swift */,
+				62AD4E892A8E875200B7F91C /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				62161FEB2A81729B000360F9 /* PostViewController.swift in Sources */,
 				62161FD12A7FFF5C000360F9 /* AppDelegate.swift in Sources */,
+				62AD4E8A2A8E875200B7F91C /* LogInViewController.swift in Sources */,
 				62161FE72A816A1C000360F9 /* FeedViewController.swift in Sources */,
 				62161FED2A8185A6000360F9 /* Post.swift in Sources */,
 				62AD4E862A854DE300B7F91C /* ProfileViewController.swift in Sources */,

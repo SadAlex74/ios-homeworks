@@ -7,6 +7,25 @@
 
 import UIKit
 
+class TextFieldWithPadding: UITextField {
+    var textPadding = UIEdgeInsets(
+        top:    10,
+        left:   10,
+        bottom: 10,
+        right:  10
+    )
+
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.textRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
+
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.editingRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
+}
+
 class ProfileHeaderView: UIView {
     
     private var statusText = ""
@@ -57,8 +76,8 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    private lazy var statusTextField: UITextField = {
-        let textField = UITextField()
+    private lazy var statusTextField: TextFieldWithPadding = {
+        let textField = TextFieldWithPadding()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textField.textColor = .black
@@ -86,7 +105,7 @@ class ProfileHeaderView: UIView {
     }
     
     @objc func buttonPressed() {
-        statusLabel.text = statusText
+        if statusText != "" {statusLabel.text = statusText}
     }
     
     private func setupConstraints() {
