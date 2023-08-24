@@ -35,7 +35,7 @@ class FeedViewController: UIViewController {
         return stackView
     }()
     
-    var post = Post(title: "Первый пост")
+    var post = BlankPost(title: "Первый пост")
     
     override func viewDidLoad() {
         super.viewDidLoad()

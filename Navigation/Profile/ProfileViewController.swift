@@ -9,53 +9,88 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private lazy var profileHeaderView: ProfileHeaderView = {
-        let view = ProfileHeaderView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemGray4
-        return view
+    fileprivate let data = feedPost
+    
+    private lazy var profileTableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
     
-    private lazy var secondButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemGray2
-        button.setTitle("Вторая кнопка", for: .normal)
-        return button
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Профиль"
-        view.addSubview(profileHeaderView)
-        view.addSubview(secondButton)
+        view.addSubview(profileTableView)
+        
         setupConstraints()
+        tuneTableView()
+        
     }
         
     private func setupConstraints() {
-        let safeAreaGuide = view.safeAreaLayoutGuide
+        let safeAreaGeide = view.safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
-            profileHeaderView.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor),
-            profileHeaderView.leftAnchor.constraint(equalTo: safeAreaGuide.leftAnchor),
-            profileHeaderView.rightAnchor.constraint(equalTo: safeAreaGuide.rightAnchor),
-            profileHeaderView.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor),
+            profileTableView.topAnchor.constraint(equalTo: safeAreaGeide.topAnchor),
+            profileTableView.bottomAnchor.constraint(equalTo: safeAreaGeide.bottomAnchor),
+            profileTableView.leftAnchor.constraint(equalTo: safeAreaGeide.leftAnchor),
+            profileTableView.rightAnchor.constraint(equalTo: safeAreaGeide.rightAnchor),
             
-            secondButton.leftAnchor.constraint(equalTo: safeAreaGuide.leftAnchor),
-            secondButton.rightAnchor.constraint(equalTo: safeAreaGuide.rightAnchor),
-            secondButton.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor)
-
+            
         ])
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func tuneTableView() {
+        profileTableView.rowHeight = UITableView.automaticDimension
+        profileTableView.estimatedRowHeight = 44.0
+        let headerView = ProfileHeaderView()
+        
+        profileTableView.setAndLayout(headerView: headerView)
+        
+        profileTableView.tableHeaderView?.translatesAutoresizingMaskIntoConstraints = false
+        profileTableView.tableHeaderView?.autoresizesSubviews = true
+        profileTableView.dataSource = self
+        profileTableView.delegate = self
+        profileTableView.register(PostTableViewCell.self, forCellReuseIdentifier: "post")
     }
-    */
+}
 
+
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "post",
+            for: indexPath
+        ) as? PostTableViewCell else {
+            fatalError("could not dequeueReusableCell")
+        }
+        
+        cell.update(data[indexPath.row])
+        
+
+        return cell
+    }
+    
+    
+}
+
+
+extension UITableView {
+    
+    func setAndLayout(headerView: UIView) {
+        tableHeaderView = headerView
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            headerView.widthAnchor.constraint(equalTo: widthAnchor)
+        ])
+        
+        headerView.setNeedsLayout()
+        headerView.layoutIfNeeded()
+        headerView.frame.size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+    }
 }
