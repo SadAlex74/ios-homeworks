@@ -109,28 +109,28 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupConstraints() {
-        let safeAreaLayoutGuide = self.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            avatarImageView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
             fullNameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
-            fullNameLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            fullNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
 
             statusLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
-            statusLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            statusLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
             
-            setStatusButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
-            setStatusButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            setStatusButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            setStatusButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             statusTextField.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
-            statusTextField.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            statusTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 16),
             statusTextField.heightAnchor.constraint(equalToConstant: 40)
 
