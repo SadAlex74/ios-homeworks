@@ -74,7 +74,7 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        return CGSize(width: (width-40)/3, height: (width-40)/3)
+        return CGSize(width: (width-36)/3, height: (width-36)/3)
     }
     
     func collectionView(

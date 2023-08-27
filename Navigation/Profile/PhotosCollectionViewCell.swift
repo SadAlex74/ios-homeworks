@@ -25,7 +25,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(photoImageView)
         contentView.clipsToBounds = true
         setupConstraints()
-        //photoImageView.scalesLargeContentImage = true
     }
     
     required init?(coder: NSCoder) {
@@ -41,8 +40,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
             photoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             photoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             photoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-//            photoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            photoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
     
