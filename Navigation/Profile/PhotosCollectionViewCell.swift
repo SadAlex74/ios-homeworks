@@ -24,6 +24,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         super.init(frame: .zero)
         contentView.addSubview(photoImageView)
         contentView.clipsToBounds = true
+        setupConstraints()
         //photoImageView.scalesLargeContentImage = true
     }
     
