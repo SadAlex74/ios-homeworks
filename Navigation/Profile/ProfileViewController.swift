@@ -21,12 +21,18 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(profileTableView)
-        
+
         setupConstraints()
         tuneTableView()
         
     }
-        
+    
+    private enum CellReuseID: String {
+        case post = "PostTableViewCell_ReuseID"
+        case photo = "PhotoTableViewCell_ReuseID"
+    }
+
+    
     private func setupConstraints() {
         let safeAreaGeide = view.safeAreaLayoutGuide
         
@@ -36,13 +42,16 @@ class ProfileViewController: UIViewController {
             profileTableView.leftAnchor.constraint(equalTo: safeAreaGeide.leftAnchor),
             profileTableView.rightAnchor.constraint(equalTo: safeAreaGeide.rightAnchor),
             
-            
         ])
     }
     
     private func tuneTableView() {
         profileTableView.rowHeight = UITableView.automaticDimension
         profileTableView.estimatedRowHeight = 44.0
+        if #available(iOS 15.0, *) {
+            profileTableView.sectionHeaderTopPadding = 0.0
+        }
+
         let headerView = ProfileHeaderView()
         
         profileTableView.setAndLayout(headerView: headerView)
@@ -51,30 +60,50 @@ class ProfileViewController: UIViewController {
         profileTableView.tableHeaderView?.autoresizesSubviews = true
         profileTableView.dataSource = self
         profileTableView.delegate = self
-        profileTableView.register(PostTableViewCell.self, forCellReuseIdentifier: "post")
+        profileTableView.register(PostTableViewCell.self, forCellReuseIdentifier: CellReuseID.post.rawValue)
+        profileTableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: CellReuseID.photo.rawValue)
     }
 }
 
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        section == 0 ? 1: data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "post",
-            for: indexPath
-        ) as? PostTableViewCell else {
-            fatalError("could not dequeueReusableCell")
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: CellReuseID.photo.rawValue,
+                for: indexPath
+            ) as? PhotosTableViewCell else {
+                fatalError("could not dequeueReusableCell")
+            }
+            return cell
         }
-        
-        cell.update(data[indexPath.row])
-        
-
-        return cell
+        else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: CellReuseID.post.rawValue,
+                for: indexPath
+            ) as? PostTableViewCell else {
+                fatalError("could not dequeueReusableCell")
+            }
+            
+            cell.update(data[indexPath.row])
+            return cell
+        }
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0  {
+            let photosViewController = PhotosViewController()
+            navigationController?.pushViewController(photosViewController, animated: true)
+        }
+    }
     
 }
 
