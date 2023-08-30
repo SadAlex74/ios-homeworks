@@ -39,7 +39,13 @@ class ProfileHeaderView: UIView {
         view.layer.borderWidth = 3
         view.layer.borderColor = UIColor.white.cgColor
         view.contentMode = .scaleAspectFit
-
+        
+        let tapAvatar = UIGestureRecognizer(
+            target: self,
+            action: #selector(tapAvatar)
+            )
+        view.addGestureRecognizer(tapAvatar)
+        
         return view
     }()
     
@@ -106,6 +112,10 @@ class ProfileHeaderView: UIView {
     
     @objc func buttonPressed() {
         if statusText != "" {statusLabel.text = statusText}
+    }
+    
+    @objc func tapAvatar() {
+        
     }
     
     private func setupConstraints() {
