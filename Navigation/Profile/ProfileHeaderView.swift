@@ -111,7 +111,13 @@ class ProfileHeaderView: UIView {
     }
     
     @objc func buttonPressed() {
-        if statusText != "" {statusLabel.text = statusText}
+        if statusText != "" {
+            statusLabel.text = statusText
+        } else {
+            let alertController = UIAlertController(title: "Изменение статуса", message: "Не указан новый статус!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.window?.rootViewController?.present(alertController, animated: true)
+        }
     }
     
     @objc func tapAvatar() {

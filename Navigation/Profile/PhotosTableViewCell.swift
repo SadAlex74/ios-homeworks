@@ -9,39 +9,7 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
     
- 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: reuseIdentifier)
-        tuneView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-   
-    private func getImageView(name: String) -> UIImageView {
-        let image  = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: name)
-        image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 6
-        image.clipsToBounds = true
-        NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalTo: image.widthAnchor, multiplier: 1)
-        ])
-        return image
-    }
+    // MARK: - Properties
     
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
@@ -72,6 +40,43 @@ class PhotosTableViewCell: UITableViewCell {
         image.image = UIImage(systemName: "arrow.right")
         return image
     }()
+    
+    // MARK: - Init
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        tuneView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+   
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    
+    // MARK: - Methods
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+    private func getImageView(name: String) -> UIImageView {
+        let image  = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: name)
+        image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 6
+        image.clipsToBounds = true
+        NSLayoutConstraint.activate([
+            image.heightAnchor.constraint(equalTo: image.widthAnchor, multiplier: 1)
+        ])
+        return image
+    }
     
     private func tuneView() {
         addSubview(photoLabel)
