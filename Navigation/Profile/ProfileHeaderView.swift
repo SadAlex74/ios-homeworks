@@ -137,7 +137,7 @@ class ProfileHeaderView: UIView {
             setStatusButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             
             statusTextField.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
             statusTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),

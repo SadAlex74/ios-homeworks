@@ -18,6 +18,9 @@
 		62AD4E862A854DE300B7F91C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E852A854DE300B7F91C /* ProfileViewController.swift */; };
 		62AD4E882A854E0400B7F91C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */; };
 		62AD4E8A2A8E875200B7F91C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E892A8E875200B7F91C /* LogInViewController.swift */; };
+		62AD4E8E2A965D9400B7F91C /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E8D2A965D9400B7F91C /* PhotosViewController.swift */; };
+		62AD4E902A965DD600B7F91C /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E8F2A965DD600B7F91C /* PhotosCollectionViewCell.swift */; };
+		62AD4E922A96785900B7F91C /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E912A96785900B7F91C /* PhotosTableViewCell.swift */; };
 		62AD4E8C2A93DF2300B7F91C /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E8B2A93DF2300B7F91C /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,9 @@
 		62AD4E852A854DE300B7F91C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		62AD4E892A8E875200B7F91C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		62AD4E8D2A965D9400B7F91C /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		62AD4E8F2A965DD600B7F91C /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		62AD4E912A96785900B7F91C /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		62AD4E8B2A93DF2300B7F91C /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +94,9 @@
 				62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */,
 				62AD4E852A854DE300B7F91C /* ProfileViewController.swift */,
 				62AD4E892A8E875200B7F91C /* LogInViewController.swift */,
+				62AD4E8D2A965D9400B7F91C /* PhotosViewController.swift */,
+				62AD4E8F2A965DD600B7F91C /* PhotosCollectionViewCell.swift */,
+				62AD4E912A96785900B7F91C /* PhotosTableViewCell.swift */,
 				62AD4E8B2A93DF2300B7F91C /* PostTableViewCell.swift */,
 			);
 			path = Profile;
@@ -163,16 +172,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62AD4E922A96785900B7F91C /* PhotosTableViewCell.swift in Sources */,
 				62161FEB2A81729B000360F9 /* PostViewController.swift in Sources */,
 				62161FD12A7FFF5C000360F9 /* AppDelegate.swift in Sources */,
 				62AD4E8A2A8E875200B7F91C /* LogInViewController.swift in Sources */,
 				62161FE72A816A1C000360F9 /* FeedViewController.swift in Sources */,
 				62161FED2A8185A6000360F9 /* Post.swift in Sources */,
+				62AD4E902A965DD600B7F91C /* PhotosCollectionViewCell.swift in Sources */,
 				62AD4E862A854DE300B7F91C /* ProfileViewController.swift in Sources */,
 				62161FEF2A818A4B000360F9 /* InfoViewController.swift in Sources */,
 				62AD4E8C2A93DF2300B7F91C /* PostTableViewCell.swift in Sources */,
 				62161FD32A7FFF5C000360F9 /* SceneDelegate.swift in Sources */,
 				62AD4E882A854E0400B7F91C /* ProfileHeaderView.swift in Sources */,
+				62AD4E8E2A965D9400B7F91C /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
