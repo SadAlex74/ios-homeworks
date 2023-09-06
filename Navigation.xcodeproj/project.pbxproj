@@ -13,8 +13,14 @@
 		62161FDD2A7FFF5D000360F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62161FDB2A7FFF5D000360F9 /* LaunchScreen.storyboard */; };
 		62161FE72A816A1C000360F9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FE62A816A1C000360F9 /* FeedViewController.swift */; };
 		62161FEB2A81729B000360F9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FEA2A81729B000360F9 /* PostViewController.swift */; };
-		62161FED2A8185A6000360F9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FEC2A8185A6000360F9 /* Post.swift */; };
 		62161FEF2A818A4B000360F9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FEE2A818A4B000360F9 /* InfoViewController.swift */; };
+		6295616C2AA8FE88001BD24B /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6295616B2AA8FE88001BD24B /* StorageService.docc */; };
+		629561722AA8FE88001BD24B /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629561682AA8FE88001BD24B /* StorageService.framework */; };
+		629561792AA8FE88001BD24B /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629561782AA8FE88001BD24B /* StorageServiceTests.swift */; };
+		6295617A2AA8FE88001BD24B /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6295616A2AA8FE88001BD24B /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6295617D2AA8FE88001BD24B /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629561682AA8FE88001BD24B /* StorageService.framework */; };
+		6295617E2AA8FE88001BD24B /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 629561682AA8FE88001BD24B /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		629561862AA8FEA6001BD24B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FEC2A8185A6000360F9 /* Post.swift */; };
 		62AD4E862A854DE300B7F91C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E852A854DE300B7F91C /* ProfileViewController.swift */; };
 		62AD4E882A854E0400B7F91C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */; };
 		62AD4E8A2A8E875200B7F91C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E892A8E875200B7F91C /* LogInViewController.swift */; };
@@ -23,6 +29,44 @@
 		62AD4E902A965DD600B7F91C /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E8F2A965DD600B7F91C /* PhotosCollectionViewCell.swift */; };
 		62AD4E922A96785900B7F91C /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E912A96785900B7F91C /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		629561732AA8FE88001BD24B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62161FC52A7FFF5C000360F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 629561672AA8FE88001BD24B;
+			remoteInfo = StorageService;
+		};
+		629561752AA8FE88001BD24B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62161FC52A7FFF5C000360F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62161FCC2A7FFF5C000360F9;
+			remoteInfo = Navigation;
+		};
+		6295617B2AA8FE88001BD24B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62161FC52A7FFF5C000360F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 629561672AA8FE88001BD24B;
+			remoteInfo = StorageService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6295617F2AA8FE88001BD24B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6295617E2AA8FE88001BD24B /* StorageService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		62161FCD2A7FFF5C000360F9 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,6 +79,11 @@
 		62161FEA2A81729B000360F9 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		62161FEC2A8185A6000360F9 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		62161FEE2A818A4B000360F9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		629561682AA8FE88001BD24B /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6295616A2AA8FE88001BD24B /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		6295616B2AA8FE88001BD24B /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
+		629561712AA8FE88001BD24B /* StorageServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorageServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		629561782AA8FE88001BD24B /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
 		62AD4E852A854DE300B7F91C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		62AD4E872A854E0400B7F91C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		62AD4E892A8E875200B7F91C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +98,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6295617D2AA8FE88001BD24B /* StorageService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		629561652AA8FE88001BD24B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6295616E2AA8FE88001BD24B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				629561722AA8FE88001BD24B /* StorageService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				62161FCF2A7FFF5C000360F9 /* Navigation */,
+				629561692AA8FE88001BD24B /* StorageService */,
+				629561772AA8FE88001BD24B /* StorageServiceTests */,
 				62161FCE2A7FFF5C000360F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				62161FCD2A7FFF5C000360F9 /* Navigation.app */,
+				629561682AA8FE88001BD24B /* StorageService.framework */,
+				629561712AA8FE88001BD24B /* StorageServiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +158,24 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		629561692AA8FE88001BD24B /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				62161FEC2A8185A6000360F9 /* Post.swift */,
+				6295616A2AA8FE88001BD24B /* StorageService.h */,
+				6295616B2AA8FE88001BD24B /* StorageService.docc */,
+			);
+			path = StorageService;
+			sourceTree = "<group>";
+		};
+		629561772AA8FE88001BD24B /* StorageServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				629561782AA8FE88001BD24B /* StorageServiceTests.swift */,
+			);
+			path = StorageServiceTests;
+			sourceTree = "<group>";
+		};
 		62AD4EB42A9FB48F00B7F91C /* PhotoGallery */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +188,6 @@
 		62AD4EB52A9FB4DD00B7F91C /* Posts */ = {
 			isa = PBXGroup;
 			children = (
-				62161FEC2A8185A6000360F9 /* Post.swift */,
 				62161FEA2A81729B000360F9 /* PostViewController.swift */,
 			);
 			path = Posts;
@@ -120,6 +206,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		629561632AA8FE88001BD24B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6295617A2AA8FE88001BD24B /* StorageService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		62161FCC2A7FFF5C000360F9 /* Navigation */ = {
 			isa = PBXNativeTarget;
@@ -128,15 +225,54 @@
 				62161FC92A7FFF5C000360F9 /* Sources */,
 				62161FCA2A7FFF5C000360F9 /* Frameworks */,
 				62161FCB2A7FFF5C000360F9 /* Resources */,
+				6295617F2AA8FE88001BD24B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6295617C2AA8FE88001BD24B /* PBXTargetDependency */,
 			);
 			name = Navigation;
 			productName = Navigation;
 			productReference = 62161FCD2A7FFF5C000360F9 /* Navigation.app */;
 			productType = "com.apple.product-type.application";
+		};
+		629561672AA8FE88001BD24B /* StorageService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 629561842AA8FE88001BD24B /* Build configuration list for PBXNativeTarget "StorageService" */;
+			buildPhases = (
+				629561632AA8FE88001BD24B /* Headers */,
+				629561642AA8FE88001BD24B /* Sources */,
+				629561652AA8FE88001BD24B /* Frameworks */,
+				629561662AA8FE88001BD24B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StorageService;
+			productName = StorageService;
+			productReference = 629561682AA8FE88001BD24B /* StorageService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		629561702AA8FE88001BD24B /* StorageServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 629561852AA8FE88001BD24B /* Build configuration list for PBXNativeTarget "StorageServiceTests" */;
+			buildPhases = (
+				6295616D2AA8FE88001BD24B /* Sources */,
+				6295616E2AA8FE88001BD24B /* Frameworks */,
+				6295616F2AA8FE88001BD24B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				629561742AA8FE88001BD24B /* PBXTargetDependency */,
+				629561762AA8FE88001BD24B /* PBXTargetDependency */,
+			);
+			name = StorageServiceTests;
+			productName = StorageServiceTests;
+			productReference = 629561712AA8FE88001BD24B /* StorageServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -150,6 +286,13 @@
 				TargetAttributes = {
 					62161FCC2A7FFF5C000360F9 = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					629561672AA8FE88001BD24B = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					629561702AA8FE88001BD24B = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 62161FCC2A7FFF5C000360F9;
 					};
 				};
 			};
@@ -167,6 +310,8 @@
 			projectRoot = "";
 			targets = (
 				62161FCC2A7FFF5C000360F9 /* Navigation */,
+				629561672AA8FE88001BD24B /* StorageService */,
+				629561702AA8FE88001BD24B /* StorageServiceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -178,6 +323,20 @@
 			files = (
 				62161FDD2A7FFF5D000360F9 /* LaunchScreen.storyboard in Resources */,
 				62161FDA2A7FFF5D000360F9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		629561662AA8FE88001BD24B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6295616F2AA8FE88001BD24B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +352,6 @@
 				62161FD12A7FFF5C000360F9 /* AppDelegate.swift in Sources */,
 				62AD4E8A2A8E875200B7F91C /* LogInViewController.swift in Sources */,
 				62161FE72A816A1C000360F9 /* FeedViewController.swift in Sources */,
-				62161FED2A8185A6000360F9 /* Post.swift in Sources */,
 				62AD4E902A965DD600B7F91C /* PhotosCollectionViewCell.swift in Sources */,
 				62AD4E862A854DE300B7F91C /* ProfileViewController.swift in Sources */,
 				62161FEF2A818A4B000360F9 /* InfoViewController.swift in Sources */,
@@ -204,7 +362,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		629561642AA8FE88001BD24B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6295616C2AA8FE88001BD24B /* StorageService.docc in Sources */,
+				629561862AA8FEA6001BD24B /* Post.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6295616D2AA8FE88001BD24B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				629561792AA8FE88001BD24B /* StorageServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		629561742AA8FE88001BD24B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 629561672AA8FE88001BD24B /* StorageService */;
+			targetProxy = 629561732AA8FE88001BD24B /* PBXContainerItemProxy */;
+		};
+		629561762AA8FE88001BD24B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62161FCC2A7FFF5C000360F9 /* Navigation */;
+			targetProxy = 629561752AA8FE88001BD24B /* PBXContainerItemProxy */;
+		};
+		6295617C2AA8FE88001BD24B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 629561672AA8FE88001BD24B /* StorageService */;
+			targetProxy = 6295617B2AA8FE88001BD24B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		62161FDB2A7FFF5D000360F9 /* LaunchScreen.storyboard */ = {
@@ -335,6 +528,7 @@
 		62161FE22A7FFF5D000360F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -361,6 +555,7 @@
 		62161FE32A7FFF5D000360F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +579,104 @@
 			};
 			name = Release;
 		};
+		629561802AA8FE88001BD24B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nukupi.StorageService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		629561812AA8FE88001BD24B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nukupi.StorageService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		629561822AA8FE88001BD24B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nukupi.StorageServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navigation";
+			};
+			name = Debug;
+		};
+		629561832AA8FE88001BD24B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nukupi.StorageServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navigation";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -401,6 +694,24 @@
 			buildConfigurations = (
 				62161FE22A7FFF5D000360F9 /* Debug */,
 				62161FE32A7FFF5D000360F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		629561842AA8FE88001BD24B /* Build configuration list for PBXNativeTarget "StorageService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				629561802AA8FE88001BD24B /* Debug */,
+				629561812AA8FE88001BD24B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		629561852AA8FE88001BD24B /* Build configuration list for PBXNativeTarget "StorageServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				629561822AA8FE88001BD24B /* Debug */,
+				629561832AA8FE88001BD24B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

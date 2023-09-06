@@ -7,19 +7,22 @@
 
 import Foundation
 
-struct BlankPost {
-    var title: String
+public struct BlankPost {
+    public var title: String
+    public init(title: String) {
+        self.title = title
+    }
 }
 
-struct Post {
-    var author: String
-    var description: String
-    var image: String
-    var likes: Int
-    var views: Int
+public struct Post {
+    public var author: String
+    public var description: String
+    public var image: String
+    public var likes: Int
+    public var views: Int
 }
 
-let feedPost: [Post] = [
+public let feedPost: [Post] = [
     Post(author: "Животные в добрые руки Оренбург",
          description: "Отдам котят помесь бенгальской породы. Два мальчика, возраст 1,5 месяцев. Кушают всё, ходят в лоток. телефон для связи +79058465265",
          image: "cats",
