@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TextFieldWithPadding: UITextField {
     var textPadding = UIEdgeInsets(
@@ -39,7 +40,6 @@ class ProfileHeaderView: UIView {
     
     private lazy var closeImage: UIImageView = {
         let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "xmark.circle")
         image.layer.opacity = 0
         image.isUserInteractionEnabled = true
@@ -54,7 +54,6 @@ class ProfileHeaderView: UIView {
     private lazy var avatarImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "avatar")
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 50
         view.layer.borderWidth = 3
@@ -75,7 +74,6 @@ class ProfileHeaderView: UIView {
         view.text = "Александр Садыков"
         view.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         view.textColor = .black
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -84,7 +82,6 @@ class ProfileHeaderView: UIView {
         view.text = "В ожидании чуда..."
         view.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         view.textColor = .gray
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -93,7 +90,6 @@ class ProfileHeaderView: UIView {
         button.backgroundColor = .systemBlue
         button.setTitle("Показать статус", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -105,7 +101,6 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textField.textColor = .black
         textField.backgroundColor = .white
@@ -189,34 +184,39 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            avatarImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
-            
-            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
-            fullNameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
-            fullNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+        avatarImageView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top).offset(16)
+            make.left.equalTo(self.snp.left).offset(16)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        fullNameLabel.snp.makeConstraints{ make in
+            make.top.equalTo(self.snp.top).offset(27)
+            make.left.equalTo(avatarImageView.snp.right).offset(16)
+            make.right.equalTo(self.snp.right).offset(-16)
+        }
+        statusLabel.snp.makeConstraints { make in
+            make.left.equalTo(avatarImageView.snp.right).offset(16)
+            make.right.equalTo(self.snp.right).offset(-16)
+            make.top.equalTo(fullNameLabel.snp.bottom).offset(16)
+        }
+        setStatusButton.snp.makeConstraints { make in
+            make.left.equalTo(self.snp.left).offset(16)
+            make.right.equalTo(self.snp.right).offset(-16)
+            make.top.equalTo(statusTextField.snp.bottom).offset(16)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.snp.bottom).offset(-16)
+        }
+        statusTextField.snp.makeConstraints { make in
+            make.left.equalTo(avatarImageView.snp.right).offset(16)
+            make.right.equalTo(self.snp.right).offset(-16)
+            make.top.equalTo(statusLabel.snp.bottom).offset(16)
+            make.height.equalTo(40)
+        }
+        closeImage.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top).offset(8)
+            make.right.equalTo(self.snp.right).offset(-8)
+        }
 
-            statusLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
-            statusLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
-            
-            setStatusButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            setStatusButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
-            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            
-            statusTextField.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
-            statusTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 16),
-            statusTextField.heightAnchor.constraint(equalToConstant: 40),
-            
-            closeImage.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            closeImage.rightAnchor.constraint(equalTo: rightAnchor, constant: -8)
- 
-        ])
     }
 }
