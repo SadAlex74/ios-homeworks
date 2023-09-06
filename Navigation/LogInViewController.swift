@@ -168,9 +168,13 @@ class LogInViewController: UIViewController {
     }
     
     @objc func logInButtonPrassed() {
-        let ProfileViewController = ProfileViewController()
+        let profileViewController = ProfileViewController()
         if emailTextField.text != "" && passwordTextField.text != "" {
-            navigationController?.pushViewController(ProfileViewController, animated: true)
+            navigationController?.pushViewController(profileViewController, animated: true)
+        } else {
+            let alertController = UIAlertController(title: "Авторизация", message: "Необходимо указать почту или телефон и пароль!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(alertController, animated: true)
         }
     }
     
