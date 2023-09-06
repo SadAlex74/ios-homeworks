@@ -7,6 +7,7 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
 
@@ -108,8 +109,15 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func update(_ post: Post) {
+        let imageProcessor = ImageProcessor()
+        func completionFilter(_ image: UIImage?) -> Void {
+            postImageView.image = image
+        }
+        if let originalImage = UIImage(named: post.image) {
+            imageProcessor.processImage(sourceImage: originalImage, filter: .sepia(intensity: 0.5), completion:  completionFilter)     
+        }
+        
         postAuthorLabel.text = post.author
-        postImageView.image = UIImage(named: post.image)
         postDescriptionLabel.text = post.description
         postLikesLabel.text = "Likes: \(post.likes)"
         postViewsLabel.text = "Views: \(post.views)"
