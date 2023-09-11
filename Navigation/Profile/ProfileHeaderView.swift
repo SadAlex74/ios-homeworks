@@ -28,6 +28,8 @@ class TextFieldWithPadding: UITextField {
 
 class ProfileHeaderView: UIView {
     
+    private var user: User?
+    
     private var statusText = ""
     
     private lazy var blankView: UIView = {
@@ -53,7 +55,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var avatarImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "avatar")
+        view.image = user!.avatar
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 50
@@ -72,7 +74,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var fullNameLabel: UILabel = {
         let view = UILabel()
-        view.text = "Александр Садыков"
+        view.text = user!.fullName
         view.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         view.textColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +83,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusLabel: UILabel = {
         let view = UILabel()
-        view.text = "В ожидании чуда..."
+        view.text = user!.status
         view.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         view.textColor = .gray
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -116,7 +118,7 @@ class ProfileHeaderView: UIView {
         textField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         return textField
     }()
-    
+        
     override func willMove(toSuperview newSuperview: UIView?) {
         addSubview(fullNameLabel)
         addSubview(statusLabel)
@@ -128,6 +130,10 @@ class ProfileHeaderView: UIView {
 
         setupConstraints()
         statusTextField.becomeFirstResponder()
+    }
+    
+    func setupUser(_ user: User) {
+        self.user = user
     }
     
     @objc func statusTextChanged() {

@@ -8,16 +8,17 @@
 import UIKit
 import StorageService
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     fileprivate let data = feedPost
+    
+    private var user: User?
     
     private lazy var profileTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class ProfileViewController: UIViewController {
         setupConstraints()
         tuneTableView()
         
+    }
+    
+    func setupUser(_ user: User) {
+        self.user = user
     }
     
     private enum CellReuseID: String {
@@ -60,7 +65,7 @@ class ProfileViewController: UIViewController {
         }
 
         let headerView = ProfileHeaderView()
-        
+        headerView.setupUser(user!)
         profileTableView.setAndLayout(headerView: headerView)
         
         profileTableView.tableHeaderView?.translatesAutoresizingMaskIntoConstraints = false
