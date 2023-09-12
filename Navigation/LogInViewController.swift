@@ -173,17 +173,15 @@ class LogInViewController: UIViewController {
 #if DEBUG
             let currentUserService = TestUserService()
 #else
-            let currentUserService = CurrentUserService(login: emailTextField.text!)
-            
+            let currentUserService = CurrentUserService()
 #endif
-            guard let currentUser = currentUserService.currentUser else {
+            guard let currentUser = currentUserService.getCurrentUser(emailTextField.text ?? "") else {
                 let alertController = UIAlertController(title: "Авторизация", message: "Пользователь с таким логином не обнаружен!", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
                 present(alertController, animated: true)
                 return }
 
-            let profileViewController = ProfileViewController()
-            profileViewController.setupUser(currentUser)
+            let profileViewController = ProfileViewController(user: currentUser)
             navigationController?.pushViewController(profileViewController, animated: true)
 
         } else {
