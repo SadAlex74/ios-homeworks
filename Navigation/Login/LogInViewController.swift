@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate {
+    func check(login: String, password: String) -> Bool
+}
+
 class LogInViewController: UIViewController {
+    
+    var loginDelegate: LoginViewControllerDelegate?
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -169,27 +175,28 @@ class LogInViewController: UIViewController {
     
     @objc func logInButtonPrassed() {
         
-        if emailTextField.text != "" && passwordTextField.text != "" {
+        if let checked = (loginDelegate?.check(login: emailTextField.text ?? "", password: passwordTextField.text ?? "")) {
+            if checked {
 #if DEBUG
-            let currentUserService = TestUserService()
+                let currentUserService = TestUserService()
 #else
-            let currentUserService = CurrentUserService()
+                let currentUserService = CurrentUserService()
 #endif
-            guard let currentUser = currentUserService.getCurrentUser(emailTextField.text ?? "") else {
-                let alertController = UIAlertController(title: "Авторизация", message: "Пользователь с таким логином не обнаружен!", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-                present(alertController, animated: true)
-                return }
-
-            let profileViewController = ProfileViewController(user: currentUser)
-            navigationController?.pushViewController(profileViewController, animated: true)
-
-        } else {
-
-            let alertController = UIAlertController(title: "Авторизация", message: "Необходимо указать логин и пароль!", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true)
-        }
+                guard let currentUser = currentUserService.getCurrentUser(emailTextField.text ?? "") else {
+                    showAllert()
+                    return }
+                
+                let profileViewController = ProfileViewController(user: currentUser)
+                navigationController?.pushViewController(profileViewController, animated: true)
+                
+            } else { showAllert() }
+        } 
+    }
+    
+    private func showAllert() {
+        let alertController = UIAlertController(title: "Ошибка авторизации", message: "Проверьте введенные данные и повторите попытку.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        present(alertController, animated: true)
     }
     
     private func setupKeyboardObservers() {
