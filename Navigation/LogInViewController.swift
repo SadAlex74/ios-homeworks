@@ -35,7 +35,7 @@ class LogInViewController: UIViewController {
     
     private lazy var emailTextField: TextFieldWithPadding = { [unowned self] in
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Email or phone"
+        textField.placeholder = "Login"
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
@@ -168,11 +168,27 @@ class LogInViewController: UIViewController {
     }
     
     @objc func logInButtonPrassed() {
-        let profileViewController = ProfileViewController()
+        
         if emailTextField.text != "" && passwordTextField.text != "" {
+#if DEBUG
+            let currentUserService = TestUserService()
+#else
+            let currentUserService = CurrentUserService(login: emailTextField.text!)
+            
+#endif
+            guard let currentUser = currentUserService.currentUser else {
+                let alertController = UIAlertController(title: "Авторизация", message: "Пользователь с таким логином не обнаружен!", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true)
+                return }
+
+            let profileViewController = ProfileViewController()
+            profileViewController.setupUser(currentUser)
             navigationController?.pushViewController(profileViewController, animated: true)
+
         } else {
-            let alertController = UIAlertController(title: "Авторизация", message: "Необходимо указать почту или телефон и пароль!", preferredStyle: .alert)
+
+            let alertController = UIAlertController(title: "Авторизация", message: "Необходимо указать логин и пароль!", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: .default))
             present(alertController, animated: true)
         }
