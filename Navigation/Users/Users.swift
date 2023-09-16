@@ -15,5 +15,12 @@ class User {
 }
 
 protocol UserService {
-    func getCurrentUser (_ login: String) -> User?
+    var user: User { get set }
+    func getCurrentUser(_ login: String) -> User?
+}
+
+extension UserService {
+    func getCurrentUser(_ login: String) -> User? {
+        return login == user.login ? user : nil
+    }
 }

@@ -12,13 +12,22 @@ final class ProfileViewController: UIViewController {
     
     fileprivate let data = feedPost
     
-    private var user: User?
+    private var user: User
     
     private lazy var profileTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    
+    init(user: User) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +43,7 @@ final class ProfileViewController: UIViewController {
         tuneTableView()
         
     }
-    
-    func setupUser(_ user: User) {
-        self.user = user
-    }
-    
+       
     private enum CellReuseID: String {
         case post = "PostTableViewCell_ReuseID"
         case photo = "PhotoTableViewCell_ReuseID"
@@ -65,7 +70,7 @@ final class ProfileViewController: UIViewController {
         }
 
         let headerView = ProfileHeaderView()
-        headerView.setupUser(user!)
+        headerView.setupUser(user)
         profileTableView.setAndLayout(headerView: headerView)
         
         profileTableView.tableHeaderView?.translatesAutoresizingMaskIntoConstraints = false

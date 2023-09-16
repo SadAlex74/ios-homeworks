@@ -28,7 +28,7 @@ class TextFieldWithPadding: UITextField {
 
 class ProfileHeaderView: UIView {
     
-    private var user: User?
+    private var user = User()
     
     private var statusText = ""
     
@@ -55,7 +55,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var avatarImageView: UIImageView = {
         let view = UIImageView()
-        view.image = user!.avatar
+        view.image = user.avatar
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 50
@@ -74,7 +74,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var fullNameLabel: UILabel = {
         let view = UILabel()
-        view.text = user!.fullName
+        view.text = user.fullName
         view.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         view.textColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusLabel: UILabel = {
         let view = UILabel()
-        view.text = user!.status
+        view.text = user.status
         view.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         view.textColor = .gray
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -145,7 +145,7 @@ class ProfileHeaderView: UIView {
             statusLabel.text = statusText
         } else {
             let alertController = UIAlertController(title: "Изменение статуса", message: "Не указан новый статус!", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+            alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
             self.window?.rootViewController?.present(alertController, animated: true)
         }
     }
