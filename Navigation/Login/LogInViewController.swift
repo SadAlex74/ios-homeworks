@@ -116,6 +116,11 @@ class LogInViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .white
         self.navigationController?.navigationBar.isHidden = true
+#if DEBUG
+        emailTextField.text = "Sadykov"
+        passwordTextField.text = "123"
+#endif
+
     }
     
     private func setupSubview() {
