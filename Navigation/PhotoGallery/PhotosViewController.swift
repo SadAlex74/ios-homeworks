@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
 
-    private lazy var photos = Array(1...20)
+    private lazy var photos: [UIImage] = []
+    
+    private var imagePublisherFacade = ImagePublisherFacade()
     
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -22,6 +25,7 @@ class PhotosViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        imagePublisherFacade.removeSubscription(for: self)
     }
     
         
@@ -32,6 +36,10 @@ class PhotosViewController: UIViewController {
         self.title = "Photos Gallery"
         view.backgroundColor = .white
         view.addSubview(collectionView)
+        imagePublisherFacade.subscribe(self)
+        imagePublisherFacade.addImagesWithTimer(time: TimeInterval(floatLiteral: 0.5),
+                                                repeat: 30,
+                                                userImages: (1...20).map {UIImage(named: "\($0)") ?? UIImage() })
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -50,7 +58,7 @@ class PhotosViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor)
         ])
     }
-
+    
 }
 
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -65,7 +73,7 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         ) as? PhotosCollectionViewCell else {
             fatalError("could not dequeueReusableCell")
         }
-        cell.setup(with: photos[indexPath.row])
+        cell.photoImageView.image = photos[indexPath.row]
         return cell
     }
     
@@ -89,5 +97,14 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
              right: 8
          )
      }
+    
+}
+
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        photos = images
+        collectionView.reloadData()
+    }
+    
     
 }
