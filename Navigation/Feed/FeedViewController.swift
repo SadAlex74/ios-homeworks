@@ -64,14 +64,14 @@ class FeedViewController: UIViewController {
     }
     
     private func bindeViewModel() {
-        viewModel.stateChanged = { [weak self] state in
+        viewModel.stateChanged = { state in
             switch state {
             case .bingo:
-                self?.guessText.backgroundColor = .systemGreen
+                self.guessText.backgroundColor = .systemGreen
             case .wrong:
-                self?.guessText.backgroundColor = .systemRed
+                self.guessText.backgroundColor = .systemRed
             case .unkown:
-                self?.guessText.backgroundColor = .systemGray6
+                self.guessText.backgroundColor = .systemGray6
             }
         }
         
