@@ -18,15 +18,15 @@ class FeedViewController: UIViewController {
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
     
-    private lazy var checkWord: (() -> Void) = { [weak self] in
-        if self?.guessText.text == "" {
+    private lazy var checkWord: (() -> Void) = {
+        if self.guessText.text == "" {
             let alertController = UIAlertController(title: "Ошибка", message: "Введите предполагаемый пароль.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-            self?.present(alertController, animated: true)
-            self?.guessText.backgroundColor = .systemGray6
+            self.present(alertController, animated: true)
+            self.guessText.backgroundColor = .systemGray6
         } else {
-            if let word = self?.guessText.text {
-                self?.viewModel.sendWord(word: word)
+            if let word = self.guessText.text {
+                self.viewModel.sendWord(word: word)
             }
         }
     }
