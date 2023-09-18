@@ -10,7 +10,7 @@ import StorageService
 
 class FeedViewController: UIViewController {
     
-    private let viewModel: FeedViewModel
+    private let viewModel = FeedViewModel()
     
     private lazy var buttonAction: (() -> Void) = {
         let postViewController = PostViewController()
@@ -54,16 +54,7 @@ class FeedViewController: UIViewController {
 
     
     var post = BlankPost(title: "Первый пост")
-    
-    init(viewModel: FeedViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(feedStackView)

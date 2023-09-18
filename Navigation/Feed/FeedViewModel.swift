@@ -14,17 +14,12 @@ final class FeedViewModel {
         case unkown
     }
     
-    private var state: WordIsGuessed
+    private var state: WordIsGuessed = .unkown
     
     var stateChanged: ((WordIsGuessed) -> Void)?
     
-    private let feedModel: FeedModel
-    
-    init(feedModel: FeedModel) {
-        self.feedModel = feedModel
-        self.state = .unkown
-    }
-    
+    private let feedModel = FeedModel()
+       
     func sendWord(word: String) {
         if feedModel.check(word: word) {
             self.state = .bingo
