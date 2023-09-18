@@ -10,20 +10,24 @@ import StorageService
 
 class FeedViewController: UIViewController {
     
+    private let viewModel: FeedViewModel
+    
     private lazy var buttonAction: (() -> Void) = {
         let postViewController = PostViewController()
         postViewController.titlePost = self.post.title
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
     
-    private lazy var checkWord: (() -> Void) = {
-        if self.guessText.text == "" {
+    private lazy var checkWord: (() -> Void) = { [weak self] in
+        if self?.guessText.text == "" {
             let alertController = UIAlertController(title: "Ошибка", message: "Введите предполагаемый пароль.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-            self.present(alertController, animated: true)
-
+            self?.present(alertController, animated: true)
+            self?.guessText.backgroundColor = .systemGray6
         } else {
-            self.guessText.backgroundColor = FeedModel.shared.check(word: self.guessText.text!) ? .systemGreen : .systemRed
+            if let word = self?.guessText.text {
+                self?.viewModel.sendWord(word: word)
+            }
         }
     }
     
@@ -51,12 +55,35 @@ class FeedViewController: UIViewController {
     
     var post = BlankPost(title: "Первый пост")
     
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(feedStackView)
         title = "Лента"
-        
+        bindeViewModel()
         setupConstraints()
+    }
+    
+    private func bindeViewModel() {
+        viewModel.stateChanged = { [weak self] state in
+            switch state {
+            case .bingo:
+                self?.guessText.backgroundColor = .systemGreen
+            case .wrong:
+                self?.guessText.backgroundColor = .systemRed
+            case .unkown:
+                self?.guessText.backgroundColor = .systemGray6
+            }
+        }
+        
     }
     
     private func setupConstraints() {

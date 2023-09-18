@@ -9,9 +9,6 @@ import Foundation
 
 final class FeedModel {
     private let secretWord = "Secret"
-    static let shared = FeedModel()
-    
-    private init() {}
     
     func check(word: String) -> Bool {
         return word == secretWord

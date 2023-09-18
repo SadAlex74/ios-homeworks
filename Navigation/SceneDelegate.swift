@@ -17,7 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
         
-        let feedNavigationController = UINavigationController(rootViewController: FeedViewController())
+        let feedModel = FeedModel()
+        let feedViewModel = FeedViewModel(feedModel: feedModel)
+        let feedNavigationController = UINavigationController(rootViewController: FeedViewController(viewModel: feedViewModel))
         feedNavigationController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName:"text.bubble"), tag: 0)
         
         let loginViewController = LogInViewController()
