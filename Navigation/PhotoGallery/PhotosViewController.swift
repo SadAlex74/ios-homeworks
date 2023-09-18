@@ -39,7 +39,7 @@ class PhotosViewController: UIViewController {
         imagePublisherFacade.subscribe(self)
         imagePublisherFacade.addImagesWithTimer(time: TimeInterval(floatLiteral: 0.5),
                                                 repeat: 30,
-                                                userImages: (1...20).map {UIImage(named: "\($0)") ?? UIImage() })
+                                                userImages: (1...20).compactMap {UIImage(named: "\($0)") } )
         
         collectionView.dataSource = self
         collectionView.delegate = self
