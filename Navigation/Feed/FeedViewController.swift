@@ -10,6 +10,8 @@ import StorageService
 
 class FeedViewController: UIViewController {
     
+    private let viewModel = FeedViewModel()
+    
     private lazy var buttonAction: (() -> Void) = {
         let postViewController = PostViewController()
         postViewController.titlePost = self.post.title
@@ -21,9 +23,11 @@ class FeedViewController: UIViewController {
             let alertController = UIAlertController(title: "Ошибка", message: "Введите предполагаемый пароль.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
             self.present(alertController, animated: true)
-
+            self.guessText.backgroundColor = .systemGray6
         } else {
-            self.guessText.backgroundColor = FeedModel.shared.check(word: self.guessText.text!) ? .systemGreen : .systemRed
+            if let word = self.guessText.text {
+                self.viewModel.sendWord(word: word)
+            }
         }
     }
     
@@ -50,13 +54,27 @@ class FeedViewController: UIViewController {
 
     
     var post = BlankPost(title: "Первый пост")
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(feedStackView)
         title = "Лента"
-        
+        bindeViewModel()
         setupConstraints()
+    }
+    
+    private func bindeViewModel() {
+        viewModel.stateChanged = { state in
+            switch state {
+            case .bingo:
+                self.guessText.backgroundColor = .systemGreen
+            case .wrong:
+                self.guessText.backgroundColor = .systemRed
+            case .unkown:
+                self.guessText.backgroundColor = .systemGray6
+            }
+        }
+        
     }
     
     private func setupConstraints() {
