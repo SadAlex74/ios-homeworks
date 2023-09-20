@@ -17,21 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
         
-        let feedNavigationController = UINavigationController(rootViewController: FeedViewController())
-        feedNavigationController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName:"text.bubble"), tag: 0)
+        let mainCoordinator = MainCoordinator()
         
-        let loginViewController = LogInViewController()
-        loginViewController.loginDelegate = MyLoginFactory().makeLoginInspector()
-        
-        let profileNavigationController = UINavigationController(rootViewController: loginViewController)
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.text.rectangle.fill"), tag: 1)
-        
-        let tabBarController = UITabBarController()
-        tabBarController.view.backgroundColor = .systemBackground
-        
-        tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
-        
-        window.rootViewController = tabBarController
+        window.rootViewController = mainCoordinator.startApplication()
         window.makeKeyAndVisible()
         
         self.window = window

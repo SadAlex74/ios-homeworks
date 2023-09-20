@@ -14,6 +14,7 @@ protocol LoginViewControllerDelegate {
 class LogInViewController: UIViewController {
     
     var loginDelegate: LoginViewControllerDelegate?
+    var coordinator: ProfileCoordinator
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -91,6 +92,15 @@ class LogInViewController: UIViewController {
         button.addTarget(self, action: #selector(logInButtonPrassed), for: .touchUpInside)
         return button
     }()
+   
+    init(coordinator: ProfileCoordinator){
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+   }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,9 +201,7 @@ class LogInViewController: UIViewController {
                     showAllert()
                     return }
                 
-                let profileViewController = ProfileViewController(user: currentUser)
-                navigationController?.pushViewController(profileViewController, animated: true)
-                
+                coordinator.openProfile(navigationController: navigationController, user: currentUser)
             } else { showAllert() }
         } 
     }

@@ -21,9 +21,7 @@ final class FeedViewModel {
     private let feedModel = FeedModel()
        
     func sendWord(word: String) {
-        if feedModel.check(word: word) {
-            self.state = .bingo
-        } else { self.state = .wrong }
-        stateChanged?(self.state)
+        state = feedModel.check(word: word) ?  .bingo : .wrong
+        stateChanged?(state)
     }
 }

@@ -12,10 +12,10 @@ class FeedViewController: UIViewController {
     
     private let viewModel = FeedViewModel()
     
+    let coordinator: FeedCoordinator
+    
     private lazy var buttonAction: (() -> Void) = {
-        let postViewController = PostViewController()
-        postViewController.titlePost = self.post.title
-        self.navigationController?.pushViewController(postViewController, animated: true)
+        self.coordinator.push(navigationController: self.navigationController, title: self.post.title)
     }
     
     private lazy var checkWord: (() -> Void) = {
@@ -50,11 +50,18 @@ class FeedViewController: UIViewController {
         stackView.addArrangedSubview(CustomButton(title: "Проверить пароль", tapAction: checkWord))
         return stackView
     }()
-    
-
-    
+      
     var post = BlankPost(title: "Первый пост")
-        
+    
+    init(coordinator: FeedCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(feedStackView)
