@@ -12,7 +12,7 @@ class PhotosViewController: UIViewController {
 
     private lazy var photos: [UIImage] = []
     
-    private var imagePublisherFacade = ImagePublisherFacade()
+    private let imageProcessor = ImageProcessor()
     
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -25,7 +25,6 @@ class PhotosViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        imagePublisherFacade.removeSubscription(for: self)
     }
     
         
@@ -36,16 +35,27 @@ class PhotosViewController: UIViewController {
         self.title = "Photos Gallery"
         view.backgroundColor = .white
         view.addSubview(collectionView)
-        imagePublisherFacade.subscribe(self)
-        imagePublisherFacade.addImagesWithTimer(time: TimeInterval(floatLiteral: 0.5),
-                                                repeat: 30,
-                                                userImages: (1...20).compactMap {UIImage(named: "\($0)") } )
         
         collectionView.dataSource = self
         collectionView.delegate = self
         
         setupConstraints()
-
+        setupPhoto()
+        filterPhoto(filter: .fade)
+    }
+    
+    private func setupPhoto() {
+        photos = (1...20).compactMap {UIImage(named: "\($0)") }
+        
+    }
+    
+    private func filterPhoto(filter: ColorFilter) {
+        imageProcessor.processImagesOnThread(sourceImages: photos, filter: filter, qos: .userInteractive) { filteredPhoto in
+            self.photos = filteredPhoto.compactMap { UIImage(cgImage: $0!) }
+            DispatchQueue.main.sync {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     private func setupConstraints() {
@@ -97,14 +107,5 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
              right: 8
          )
      }
-    
-}
-
-extension PhotosViewController: ImageLibrarySubscriber {
-    func receive(images: [UIImage]) {
-        photos = images
-        collectionView.reloadData()
-    }
-    
     
 }
