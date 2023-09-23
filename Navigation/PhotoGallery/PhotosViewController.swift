@@ -50,8 +50,11 @@ class PhotosViewController: UIViewController {
     }
     
     private func filterPhoto(filter: ColorFilter) {
-        imageProcessor.processImagesOnThread(sourceImages: photos, filter: filter, qos: .userInteractive) { filteredPhoto in
+        let startDate = Date()
+        imageProcessor.processImagesOnThread(sourceImages: photos, filter: filter, qos: .background) { [weak self] filteredPhoto in
+            guard let self else { return }
             self.photos = filteredPhoto.compactMap { UIImage(cgImage: $0!) }
+            print("Время обработки:  \(Date().timeIntervalSince(startDate)) секунд")
             DispatchQueue.main.sync {
                 self.collectionView.reloadData()
             }
