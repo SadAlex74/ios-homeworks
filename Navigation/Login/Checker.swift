@@ -19,7 +19,7 @@ final class Checker {
         return self.login == login && self.password == password
     }
 
-    func checkPassword(password: String) -> Bool {
+    func checkPassword(_ password: String) -> Bool {
         return self.password == password
     }
 

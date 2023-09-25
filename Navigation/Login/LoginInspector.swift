@@ -57,7 +57,7 @@ struct LoginInspector: LoginViewControllerDelegate {
         Checker.shared.setPassword(generatePassword(lenght: passwordLenght, array: array))
         
         let workItem = DispatchWorkItem {
-            while !Checker.shared.checkPassword(password: password) {
+            while !Checker.shared.checkPassword(password) {
                 password = generateBruteForce(password, fromArray: array)
             }
         }
