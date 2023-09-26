@@ -102,6 +102,7 @@ class LogInViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(genarateAndBruteForcePassword), for: .touchUpInside)
+        button.isHidden = true // убирать пока небуду
         return button
     }()
     
@@ -237,10 +238,12 @@ class LogInViewController: UIViewController {
     
     @objc func genarateAndBruteForcePassword() {
         activityIndicator.startAnimating()
+        bruteForceButton.isEnabled = false
         loginDelegate?.generateAndBruteForcePassword() { [ weak self ] password in
             self?.passwordTextField.text = password
             self?.passwordTextField.isSecureTextEntry = false
             self?.activityIndicator.stopAnimating()
+            self?.bruteForceButton.isEnabled = true
         }
     }
     

@@ -12,6 +12,8 @@ class PhotosViewController: UIViewController {
 
     private lazy var photos: [UIImage] = []
     
+    private var timer: Timer?
+    
     private let imageProcessor = ImageProcessor()
     
     private let collectionView: UICollectionView = {
@@ -25,6 +27,7 @@ class PhotosViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        disableTimer()
     }
     
         
@@ -42,21 +45,32 @@ class PhotosViewController: UIViewController {
         setupConstraints()
         setupPhoto()
         filterPhoto(filter: .fade)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "0.0", style: .plain, target: nil, action: nil)
     }
     
     private func setupPhoto() {
         photos = (1...20).compactMap {UIImage(named: "\($0)") }
-        
+    }
+    
+    private func disableTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
     private func filterPhoto(filter: ColorFilter) {
         let startDate = Date()
+        var filterDuration = 0.0
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+            filterDuration = Double( round(Date().timeIntervalSince(startDate) * 10)) / 10
+            self.navigationItem.rightBarButtonItem?.title = "\(filterDuration) sec."
+
+        })
         imageProcessor.processImagesOnThread(sourceImages: photos, filter: filter, qos: .background) { [weak self] filteredPhoto in
             guard let self else { return }
             self.photos = filteredPhoto.compactMap { UIImage(cgImage: $0!) }
-            print("Время обработки:  \(Date().timeIntervalSince(startDate)) секунд")
             DispatchQueue.main.sync {
                 self.collectionView.reloadData()
+                self.disableTimer()
             }
         }
     }
