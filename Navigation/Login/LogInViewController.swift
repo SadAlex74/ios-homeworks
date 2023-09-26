@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginViewControllerDelegate {
     func check(login: String, password: String) -> Bool
+    func generateAndBruteForcePassword(completion: @escaping (String) -> Void ) -> Void
 }
 
 class LogInViewController: UIViewController {
@@ -93,6 +94,24 @@ class LogInViewController: UIViewController {
         return button
     }()
    
+    private lazy var bruteForceButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
+        button.setTitle("Brute force", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(genarateAndBruteForcePassword), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        // indicator.isHidden = true
+        return indicator
+    }()
+    
     init(coordinator: ProfileCoordinator){
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -139,6 +158,8 @@ class LogInViewController: UIViewController {
         contentView.addSubview(logoImageView)
         contentView.addSubview(logInStackView)
         contentView.addSubview(logInButton)
+        contentView.addSubview(bruteForceButton)
+        contentView.addSubview(activityIndicator)
     }
     
     private func setConstraints() {
@@ -170,7 +191,15 @@ class LogInViewController: UIViewController {
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: passwordTextField.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: passwordTextField.centerYAnchor),
+
+            bruteForceButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            bruteForceButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            bruteForceButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            bruteForceButton.heightAnchor.constraint(equalToConstant: 50),
+            bruteForceButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
             blankView.heightAnchor.constraint(equalToConstant: 0.5),
             blankView.centerYAnchor.constraint(equalTo: logInStackView.centerYAnchor)
@@ -204,6 +233,15 @@ class LogInViewController: UIViewController {
                 coordinator.openProfile(navigationController: navigationController, user: currentUser)
             } else { showAllert() }
         } 
+    }
+    
+    @objc func genarateAndBruteForcePassword() {
+        activityIndicator.startAnimating()
+        loginDelegate?.generateAndBruteForcePassword() { [ weak self ] password in
+            self?.passwordTextField.text = password
+            self?.passwordTextField.isSecureTextEntry = false
+            self?.activityIndicator.stopAnimating()
+        }
     }
     
     private func showAllert() {
