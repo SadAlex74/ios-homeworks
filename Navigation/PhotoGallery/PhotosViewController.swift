@@ -58,11 +58,12 @@ class PhotosViewController: UIViewController {
     }
     
     private func filterPhoto(filter: ColorFilter) {
-        let startDate = Date()
+        let timerInterval = 0.1
         var filterDuration = 0.0
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
-            filterDuration = Double( round(Date().timeIntervalSince(startDate) * 10)) / 10
-            self.navigationItem.rightBarButtonItem?.title = "\(filterDuration) sec."
+            filterDuration += timerInterval
+            let durStr = String( format: "%.2f sec", filterDuration)
+            self.navigationItem.rightBarButtonItem?.title = durStr
 
         })
         imageProcessor.processImagesOnThread(sourceImages: photos, filter: filter, qos: .background) { [weak self] filteredPhoto in
