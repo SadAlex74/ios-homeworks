@@ -49,7 +49,19 @@ class PhotosViewController: UIViewController {
     }
     
     private func setupPhoto() {
-        photos = (1...20).compactMap {UIImage(named: "\($0)") }
+        do {
+            try photos = getArrayPhoto() }
+        catch {
+            let alertController = UIAlertController(title: "Ошибка", message: "Изображения не найдны", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+            present(alertController, animated: true)
+        }
+    }
+    
+    private func getArrayPhoto() throws -> [UIImage] {
+        if Bool.random() {
+            return (1...20).compactMap {UIImage(named: "\($0)") }
+        } else { throw AppError.imageNotFound}
     }
     
     private func disableTimer() {
@@ -60,7 +72,7 @@ class PhotosViewController: UIViewController {
     private func filterPhoto(filter: ColorFilter) {
         let timerInterval = 0.1
         var filterDuration = 0.0
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true, block: { _ in
             filterDuration += timerInterval
             let durStr = String( format: "%.2f sec", filterDuration)
             self.navigationItem.rightBarButtonItem?.title = durStr

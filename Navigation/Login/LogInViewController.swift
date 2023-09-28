@@ -227,13 +227,19 @@ class LogInViewController: UIViewController {
 #else
                 let currentUserService = CurrentUserService()
 #endif
-                guard let currentUser = currentUserService.getCurrentUser(emailTextField.text ?? "") else {
-                    showAllert()
-                    return }
-                
-                coordinator.openProfile(navigationController: navigationController, user: currentUser)
-            } else { showAllert() }
-        } 
+                currentUserService.getCurrentUser(emailTextField.text ?? "") { result in
+                    switch result {
+                    case .success(let user):
+                        let currentUser = user
+                        coordinator.openProfile(navigationController: navigationController, user: currentUser)
+                    case .failure(let error):
+                        showAllert(error: error)
+                    }
+                }
+            } else {
+                showAllert(error: .unouthorized)
+            }
+        }
     }
     
     @objc func genarateAndBruteForcePassword() {
@@ -247,8 +253,17 @@ class LogInViewController: UIViewController {
         }
     }
     
-    private func showAllert() {
-        let alertController = UIAlertController(title: "Ошибка авторизации", message: "Проверьте введенные данные и повторите попытку.", preferredStyle: .alert)
+    private func showAllert(error: AppError) {
+        var message: String
+        switch error {
+        case .unouthorized:
+            message = "Неверно указан логин или пароль"
+        case .userNotFound:
+            message = "Пользователь не найден"
+        default:
+            preconditionFailure("Кроме уже обработанных вариантов других быть не может")
+        }
+        let alertController = UIAlertController(title: "Ошибка авторизации", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
         present(alertController, animated: true)
     }

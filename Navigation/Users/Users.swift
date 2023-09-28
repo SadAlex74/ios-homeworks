@@ -16,11 +16,15 @@ class User {
 
 protocol UserService {
     var user: User { get set }
-    func getCurrentUser(_ login: String) -> User?
+    func getCurrentUser(_ login: String, complition: (Result<User,AppError>) -> Void) -> Void
 }
 
 extension UserService {
-    func getCurrentUser(_ login: String) -> User? {
-        return login == user.login ? user : nil
+    func getCurrentUser(_ login: String, complition: (Result<User,AppError>) -> Void) -> Void {
+        if login == user.login && Bool.random() {
+            complition(.success(user))
+        } else {
+            complition(.failure(.userNotFound))
+        }
     }
 }
