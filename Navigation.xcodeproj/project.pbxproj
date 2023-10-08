@@ -38,6 +38,7 @@
 		62EBF3EB2ABA1FC500E84ECC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBF3EA2ABA1FC500E84ECC /* MainCoordinator.swift */; };
 		62EBF3ED2ABA20FE00E84ECC /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBF3EC2ABA20FE00E84ECC /* FeedCoordinator.swift */; };
 		62EBF3EF2ABA211300E84ECC /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBF3EE2ABA211300E84ECC /* ProfileCoordinator.swift */; };
+		62ED23502AC5D39B0024C449 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ED234F2AC5D39B0024C449 /* AppError.swift */; };
 		846AFCD12AAFC01E0006C88C /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AFCD02AAFC01E0006C88C /* Users.swift */; };
 		846AFCD32AAFC05D0006C88C /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AFCD22AAFC05D0006C88C /* CurrentUserService.swift */; };
 		846AFCD52AAFC07E0006C88C /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AFCD42AAFC07E0006C88C /* TestUserService.swift */; };
@@ -113,6 +114,7 @@
 		62EBF3EA2ABA1FC500E84ECC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		62EBF3EC2ABA20FE00E84ECC /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		62EBF3EE2ABA211300E84ECC /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		62ED234F2AC5D39B0024C449 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		846AFCD02AAFC01E0006C88C /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		846AFCD22AAFC05D0006C88C /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		846AFCD42AAFC07E0006C88C /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				62161FDE2A7FFF5D000360F9 /* Info.plist */,
 				62161FEE2A818A4B000360F9 /* InfoViewController.swift */,
 				62EBF3E22AB74CAA00E84ECC /* CustomButton.swift */,
+				62ED234F2AC5D39B0024C449 /* AppError.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				629561982AB0E41D001BD24B /* MyLoginFactory.swift in Sources */,
 				846AFCD32AAFC05D0006C88C /* CurrentUserService.swift in Sources */,
 				62EBF3EF2ABA211300E84ECC /* ProfileCoordinator.swift in Sources */,
+				62ED23502AC5D39B0024C449 /* AppError.swift in Sources */,
 				62EBF3E82AB8A27900E84ECC /* FeedViewModel.swift in Sources */,
 				62AD4E8C2A93DF2300B7F91C /* PostTableViewCell.swift in Sources */,
 				846AFCD12AAFC01E0006C88C /* Users.swift in Sources */,
