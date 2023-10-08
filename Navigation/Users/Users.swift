@@ -21,7 +21,7 @@ protocol UserService {
 
 extension UserService {
     func getCurrentUser(_ login: String, complition: (Result<User,AppError>) -> Void) -> Void {
-        if login == user.login && Bool.random() {
+        if login == user.login {
             complition(.success(user))
         } else {
             complition(.failure(.userNotFound))

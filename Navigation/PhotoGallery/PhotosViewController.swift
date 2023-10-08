@@ -59,9 +59,7 @@ class PhotosViewController: UIViewController {
     }
     
     private func getArrayPhoto() throws -> [UIImage] {
-        if Bool.random() {
             return (1...20).compactMap {UIImage(named: "\($0)") }
-        } else { throw AppError.imageNotFound}
     }
     
     private func disableTimer() {
