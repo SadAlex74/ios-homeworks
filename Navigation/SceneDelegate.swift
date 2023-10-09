@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -18,6 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         
         let mainCoordinator = MainCoordinator()
+        
+        let appConfiguration = AppConfiguration.allCases.randomElement()!
+        NetworkService.request(for: appConfiguration)
         
         window.rootViewController = mainCoordinator.startApplication()
         window.makeKeyAndVisible()
