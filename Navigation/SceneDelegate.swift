@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let mainCoordinator = MainCoordinator()
         
-        let appConfiguration = AppConfiguration.allCases.randomElement()!
-        NetworkService.request(for: appConfiguration)
+        //let appConfiguration = AppConfiguration.allCases.randomElement()!
+        // NetworkService.request(for: appConfiguration)
         
         window.rootViewController = mainCoordinator.startApplication()
         window.makeKeyAndVisible()
