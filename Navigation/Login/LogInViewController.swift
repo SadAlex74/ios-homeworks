@@ -8,13 +8,13 @@
 import UIKit
 
 protocol LoginViewControllerDelegate {
-    func check(login: String, password: String) -> Bool
-    func generateAndBruteForcePassword(completion: @escaping (String) -> Void ) -> Void
+    func checkCredentials(email: String, password: String) async throws -> User
+    func isValidEmail(_ email: String) -> Bool
 }
 
 class LogInViewController: UIViewController {
     
-    var loginDelegate: LoginViewControllerDelegate?
+    var loginDelegate: LoginViewControllerDelegate
     var coordinator: ProfileCoordinator
     
     private lazy var scrollView: UIScrollView = {
@@ -43,22 +43,24 @@ class LogInViewController: UIViewController {
     
     private lazy var emailTextField: TextFieldWithPadding = { [unowned self] in
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Login"
+        textField.placeholder = "Email"
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.delegate = self
+        textField.addTarget(self, action: #selector(emailOrPasswordChanged), for: .editingChanged)
         return textField
     }()
     
     private lazy var passwordTextField: TextFieldWithPadding = { [unowned self] in
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Password"
+        textField.placeholder = "Password (minimum 6 simbols)"
         textField.isSecureTextEntry = true
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.delegate = self
+        textField.addTarget(self, action: #selector(emailOrPasswordChanged), for: .editingChanged)
         return textField
     }()
     
@@ -90,31 +92,14 @@ class LogInViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
+        button.isEnabled = false
         button.addTarget(self, action: #selector(logInButtonPrassed), for: .touchUpInside)
         return button
     }()
    
-    private lazy var bruteForceButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
-        button.setTitle("Brute force", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(genarateAndBruteForcePassword), for: .touchUpInside)
-        button.isHidden = true // убирать пока небуду
-        return button
-    }()
-    
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .medium)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        // indicator.isHidden = true
-        return indicator
-    }()
-    
-    init(coordinator: ProfileCoordinator){
+    init(coordinator: ProfileCoordinator, loginDelegate: LoginInspector){
         self.coordinator = coordinator
+        self.loginDelegate = loginDelegate
         super.init(nibName: nil, bundle: nil)
    }
     
@@ -142,15 +127,9 @@ class LogInViewController: UIViewController {
         removeKeyboardObservers()
     }
 
-    
     private func setupView() {
         view.backgroundColor = .white
         self.navigationController?.navigationBar.isHidden = true
-#if DEBUG
-        emailTextField.text = "Sadykov"
-        passwordTextField.text = "123"
-#endif
-
     }
     
     private func setupSubview() {
@@ -159,8 +138,12 @@ class LogInViewController: UIViewController {
         contentView.addSubview(logoImageView)
         contentView.addSubview(logInStackView)
         contentView.addSubview(logInButton)
-        contentView.addSubview(bruteForceButton)
-        contentView.addSubview(activityIndicator)
+        #if DEBUG
+        emailTextField.text = "admin@nukupi.ru"
+        passwordTextField.text = "123456"
+        logInButton.isEnabled = true
+        #endif
+    
     }
     
     private func setConstraints() {
@@ -192,16 +175,8 @@ class LogInViewController: UIViewController {
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            activityIndicator.centerXAnchor.constraint(equalTo: passwordTextField.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: passwordTextField.centerYAnchor),
-
-            bruteForceButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
-            bruteForceButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            bruteForceButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            bruteForceButton.heightAnchor.constraint(equalToConstant: 50),
-            bruteForceButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
+            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                        
             blankView.heightAnchor.constraint(equalToConstant: 0.5),
             blankView.centerYAnchor.constraint(equalTo: logInStackView.centerYAnchor)
             
@@ -219,45 +194,28 @@ class LogInViewController: UIViewController {
     }
     
     @objc func logInButtonPrassed() {
-        
-        if let checked = (loginDelegate?.check(login: emailTextField.text ?? "", password: passwordTextField.text ?? "")) {
-            if checked {
-#if DEBUG
-                let currentUserService = TestUserService()
-#else
-                let currentUserService = CurrentUserService()
-#endif
-                currentUserService.getCurrentUser(emailTextField.text ?? "") { result in
-                    switch result {
-                    case .success(let user):
-                        let currentUser = user
-                        coordinator.openProfile(navigationController: navigationController, user: currentUser)
-                    case .failure(let error):
-                        showAllert(error: error)
-                    }
-                }
-            } else {
+        Task{
+            do {
+                logInButton.isEnabled = false
+                let currentUser = try await loginDelegate.checkCredentials(email: emailTextField.text!, password: passwordTextField.text!)
+                coordinator.openProfile(navigationController: navigationController, user: currentUser)
+            } catch {
+                logInButton.isEnabled = true
                 showAllert(error: .unouthorized)
             }
         }
+
     }
     
-    @objc func genarateAndBruteForcePassword() {
-        activityIndicator.startAnimating()
-        bruteForceButton.isEnabled = false
-        loginDelegate?.generateAndBruteForcePassword() { [ weak self ] password in
-            self?.passwordTextField.text = password
-            self?.passwordTextField.isSecureTextEntry = false
-            self?.activityIndicator.stopAnimating()
-            self?.bruteForceButton.isEnabled = true
-        }
+    @objc func emailOrPasswordChanged() {
+        self.logInButton.isEnabled = loginDelegate.isValidEmail(emailTextField.text!) && passwordTextField.text!.count > 5
     }
     
     private func showAllert(error: AppError) {
         var message: String
         switch error {
         case .unouthorized:
-            message = "Неверно указан логин или пароль"
+            message = "Неверно указан пароль"
         case .userNotFound:
             message = "Пользователь не найден"
         default:

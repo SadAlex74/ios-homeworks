@@ -14,8 +14,8 @@ final class MainCoordinator {
         feedNavigationController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName:"text.bubble"), tag: 0)
         
         let profileCoordinator = ProfileCoordinator()
-        let loginViewController = LogInViewController(coordinator: profileCoordinator)
-        loginViewController.loginDelegate = MyLoginFactory().makeLoginInspector()
+        let loginInspector = LoginInspector()
+        let loginViewController = LogInViewController(coordinator: profileCoordinator, loginDelegate: loginInspector)
         
         let profileNavigationController = UINavigationController(rootViewController: loginViewController)
         profileNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.text.rectangle.fill"), tag: 1)
