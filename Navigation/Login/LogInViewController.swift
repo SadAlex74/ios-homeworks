@@ -48,6 +48,7 @@ class LogInViewController: UIViewController {
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.delegate = self
+        textField.keyboardType = .emailAddress
         textField.addTarget(self, action: #selector(emailOrPasswordChanged), for: .editingChanged)
         return textField
     }()
