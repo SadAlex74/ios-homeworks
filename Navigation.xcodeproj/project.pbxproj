@@ -19,6 +19,13 @@
 		621D67892AE6FA9F002C6CF7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 621D67882AE6FA9F002C6CF7 /* FirebaseStorage */; };
 		621D678B2AECE55F002C6CF7 /* CheckerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D678A2AECE55F002C6CF7 /* CheckerService.swift */; };
 		621D678D2AECF6BF002C6CF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 621D678C2AECF6BF002C6CF7 /* GoogleService-Info.plist */; };
+		6228D96B2AEEB81C000FD42A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228D96A2AEEB81C000FD42A /* AppDelegate.swift */; };
+		6228D96D2AEEB81C000FD42A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228D96C2AEEB81C000FD42A /* SceneDelegate.swift */; };
+		6228D96F2AEEB81C000FD42A /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228D96E2AEEB81C000FD42A /* FileListViewController.swift */; };
+		6228D9742AEEB81D000FD42A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228D9732AEEB81D000FD42A /* Assets.xcassets */; };
+		6228D9772AEEB81D000FD42A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6228D9752AEEB81D000FD42A /* LaunchScreen.storyboard */; };
+		6228D97D2AEEBB5F000FD42A /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228D97C2AEEBB5F000FD42A /* FileManagerService.swift */; };
+		6228D97F2AEEBDE6000FD42A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228D97E2AEEBDE6000FD42A /* Model.swift */; };
 		6295616C2AA8FE88001BD24B /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6295616B2AA8FE88001BD24B /* StorageService.docc */; };
 		629561722AA8FE88001BD24B /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629561682AA8FE88001BD24B /* StorageService.framework */; };
 		629561792AA8FE88001BD24B /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629561782AA8FE88001BD24B /* StorageServiceTests.swift */; };
@@ -103,6 +110,15 @@
 		62161FEE2A818A4B000360F9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		621D678A2AECE55F002C6CF7 /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
 		621D678C2AECF6BF002C6CF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6228D9682AEEB81C000FD42A /* FileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6228D96A2AEEB81C000FD42A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6228D96C2AEEB81C000FD42A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6228D96E2AEEB81C000FD42A /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
+		6228D9732AEEB81D000FD42A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6228D9762AEEB81D000FD42A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6228D9782AEEB81D000FD42A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6228D97C2AEEBB5F000FD42A /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		6228D97E2AEEBDE6000FD42A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		629561682AA8FE88001BD24B /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6295616A2AA8FE88001BD24B /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		6295616B2AA8FE88001BD24B /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -146,6 +162,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6228D9652AEEB81C000FD42A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		629561652AA8FE88001BD24B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,6 +193,7 @@
 				62161FCF2A7FFF5C000360F9 /* Navigation */,
 				629561692AA8FE88001BD24B /* StorageService */,
 				629561772AA8FE88001BD24B /* StorageServiceTests */,
+				6228D9692AEEB81C000FD42A /* FileManager */,
 				62161FCE2A7FFF5C000360F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -180,6 +204,7 @@
 				62161FCD2A7FFF5C000360F9 /* Navigation.app */,
 				629561682AA8FE88001BD24B /* StorageService.framework */,
 				629561712AA8FE88001BD24B /* StorageServiceTests.xctest */,
+				6228D9682AEEB81C000FD42A /* FileManager.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +235,21 @@
 				629E3ED42AD4722A0025C444 /* AppConfiguration.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		6228D9692AEEB81C000FD42A /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				6228D97E2AEEBDE6000FD42A /* Model.swift */,
+				6228D97C2AEEBB5F000FD42A /* FileManagerService.swift */,
+				6228D96A2AEEB81C000FD42A /* AppDelegate.swift */,
+				6228D96C2AEEB81C000FD42A /* SceneDelegate.swift */,
+				6228D96E2AEEB81C000FD42A /* FileListViewController.swift */,
+				6228D9732AEEB81D000FD42A /* Assets.xcassets */,
+				6228D9752AEEB81D000FD42A /* LaunchScreen.storyboard */,
+				6228D9782AEEB81D000FD42A /* Info.plist */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 		629561692AA8FE88001BD24B /* StorageService */ = {
@@ -361,6 +401,23 @@
 			productReference = 62161FCD2A7FFF5C000360F9 /* Navigation.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6228D9672AEEB81C000FD42A /* FileManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6228D97B2AEEB81D000FD42A /* Build configuration list for PBXNativeTarget "FileManager" */;
+			buildPhases = (
+				6228D9642AEEB81C000FD42A /* Sources */,
+				6228D9652AEEB81C000FD42A /* Frameworks */,
+				6228D9662AEEB81C000FD42A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FileManager;
+			productName = FileManager;
+			productReference = 6228D9682AEEB81C000FD42A /* FileManager.app */;
+			productType = "com.apple.product-type.application";
+		};
 		629561672AA8FE88001BD24B /* StorageService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 629561842AA8FE88001BD24B /* Build configuration list for PBXNativeTarget "StorageService" */;
@@ -411,6 +468,9 @@
 					62161FCC2A7FFF5C000360F9 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
+					6228D9672AEEB81C000FD42A = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					629561672AA8FE88001BD24B = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -440,6 +500,7 @@
 				62161FCC2A7FFF5C000360F9 /* Navigation */,
 				629561672AA8FE88001BD24B /* StorageService */,
 				629561702AA8FE88001BD24B /* StorageServiceTests */,
+				6228D9672AEEB81C000FD42A /* FileManager */,
 			);
 		};
 /* End PBXProject section */
@@ -452,6 +513,15 @@
 				62161FDD2A7FFF5D000360F9 /* LaunchScreen.storyboard in Resources */,
 				62161FDA2A7FFF5D000360F9 /* Assets.xcassets in Resources */,
 				621D678D2AECF6BF002C6CF7 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6228D9662AEEB81C000FD42A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6228D9772AEEB81D000FD42A /* LaunchScreen.storyboard in Resources */,
+				6228D9742AEEB81D000FD42A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +578,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6228D9642AEEB81C000FD42A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6228D97F2AEEBDE6000FD42A /* Model.swift in Sources */,
+				6228D96F2AEEB81C000FD42A /* FileListViewController.swift in Sources */,
+				6228D96B2AEEB81C000FD42A /* AppDelegate.swift in Sources */,
+				6228D96D2AEEB81C000FD42A /* SceneDelegate.swift in Sources */,
+				6228D97D2AEEBB5F000FD42A /* FileManagerService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		629561642AA8FE88001BD24B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +632,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				62161FDC2A7FFF5D000360F9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6228D9752AEEB81D000FD42A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6228D9762AEEB81D000FD42A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -735,6 +825,69 @@
 			};
 			name = Release;
 		};
+		6228D9792AEEB81D000FD42A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V2YRDUZXS3;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FileManager/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nukupi.FileManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6228D97A2AEEB81D000FD42A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V2YRDUZXS3;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FileManager/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nukupi.FileManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		629561802AA8FE88001BD24B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -858,6 +1011,15 @@
 			buildConfigurations = (
 				62161FE22A7FFF5D000360F9 /* Debug */,
 				62161FE32A7FFF5D000360F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6228D97B2AEEB81D000FD42A /* Build configuration list for PBXNativeTarget "FileManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6228D9792AEEB81D000FD42A /* Debug */,
+				6228D97A2AEEB81D000FD42A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
