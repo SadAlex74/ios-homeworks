@@ -7,6 +7,6 @@
 
 
 extension String {
-    static let sortingFile = "sortingFile"
+    static let sortingFile = "Sorting file"
     static let sizeFile = "Size file"
 }

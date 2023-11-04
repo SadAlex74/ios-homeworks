@@ -31,7 +31,6 @@ final class SettingsViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        tableView.register(cellSettings.self, forCellReuseIdentifier: "settingCell")
     }
 }
 
@@ -41,10 +40,20 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cellSettings(style: .default, reuseIdentifier: "settingCell")
-        //cell.isUserInteractionEnabled = false
-        cell.update(settingName: .sizeFile)
-        return cell
+        switch indexPath.row {
+        case 0:
+            let cell = cellSettings(style: .default, reuseIdentifier: nil)
+            cell.update(settingName: .sortingFile)
+            return cell
+        case 1:
+            let cell = cellSettings(style: .default, reuseIdentifier: nil)
+            cell.update(settingName: .sizeFile)
+            return cell
+        default:
+            let cell = changePasswordCell(style: .default, reuseIdentifier: nil)
+            cell.isUserInteractionEnabled = false
+            return cell
+        }
     }
 }
 
@@ -61,7 +70,6 @@ final class cellSettings: UITableViewCell {
     private lazy var settingValueSwitch: UISwitch = {
         var valueSwitch = UISwitch()
         valueSwitch.translatesAutoresizingMaskIntoConstraints = false
-        valueSwitch.addTarget(self, action: #selector(valueChange), for: .valueChanged)
         return valueSwitch
     }()
     
@@ -75,12 +83,13 @@ final class cellSettings: UITableViewCell {
     }
     
     @objc private func valueChange() {
-        
+        print("change value")
     }
     
     private func layout() {
         addSubview(settingNameLabel)
         addSubview(settingValueSwitch)
+        settingValueSwitch.addTarget(self, action: #selector(valueChange), for: .valueChanged)
         NSLayoutConstraint.activate([
             settingValueSwitch.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             settingNameLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
@@ -95,3 +104,36 @@ final class cellSettings: UITableViewCell {
     }
 }
 
+final class changePasswordCell: UITableViewCell {
+    private lazy var changePasswordButton: UIButton = {
+        var button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Change password", for: .normal)
+        button.backgroundColor = .purple
+        return button
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func layout() {
+        addSubview(changePasswordButton)
+        changePasswordButton.addTarget(self, action: #selector(changePasswordAction), for: .valueChanged)
+        NSLayoutConstraint.activate([
+            changePasswordButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            changePasswordButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
+            changePasswordButton.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
+        ])
+    }
+
+    @objc private func changePasswordAction() {
+        print("change password")
+    }
+
+}
