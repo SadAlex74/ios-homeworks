@@ -62,7 +62,7 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 2 {
-            let vc = LoginViewController(mode: .changePassword, coordinator: MainCoordinator())
+            let vc = LoginViewController(mode: .changePassword, coordinator: nil)
             present(vc, animated: true)
         }
     }

@@ -14,7 +14,7 @@ enum ModeLoginViewController {
 }
 
 final class LoginViewController: UIViewController {
-    private let coordinator: MainCoordinator
+    private let coordinator: MainCoordinator?
     private var mode: ModeLoginViewController
     private lazy var password = ""
     
@@ -42,7 +42,7 @@ final class LoginViewController: UIViewController {
         return button
     }()
  
-    init(mode: ModeLoginViewController, coordinator: MainCoordinator) {
+    init(mode: ModeLoginViewController, coordinator: MainCoordinator?) {
         self.mode = mode
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -115,7 +115,7 @@ final class LoginViewController: UIViewController {
                 if password == passwordTextField.text {
                     KeychainService.default.writePassword(password: password)
                     if mode == .createPassword {
-                        coordinator.openFileManager(navigationController: navigationController)
+                        coordinator?.openFileManager(navigationController: navigationController)
                     } else {
                         dismiss(animated: true)
                     }
@@ -132,7 +132,7 @@ final class LoginViewController: UIViewController {
             }
             case .checkPassword:
             if KeychainService.default.isPasswordCorrect(password: passwordTextField.text!) {
-                coordinator.openFileManager(navigationController: navigationController)
+                coordinator?.openFileManager(navigationController: navigationController)
             } else {
                 passwordTextField.text = ""
                 passwordTextChanged()
