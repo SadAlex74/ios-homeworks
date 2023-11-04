@@ -12,7 +12,7 @@ final class SettingsViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
-//        tableView.delegate = self
+        tableView.delegate = self
         return tableView
     }()
 
@@ -44,10 +44,12 @@ extension SettingsViewController: UITableViewDataSource {
         case 0:
             let cell = cellSettings(style: .default, reuseIdentifier: nil)
             cell.update(settingName: .sortingFile)
+            cell.isUserInteractionEnabled = false
             return cell
         case 1:
             let cell = cellSettings(style: .default, reuseIdentifier: nil)
             cell.update(settingName: .sizeFile)
+            cell.isUserInteractionEnabled = false
             return cell
         default:
             let cell = changePasswordCell(style: .default, reuseIdentifier: nil)
@@ -55,6 +57,10 @@ extension SettingsViewController: UITableViewDataSource {
             return cell
         }
     }
+}
+
+extension SettingsViewController: UITableViewDelegate {
+    
 }
 
 final class cellSettings: UITableViewCell {
@@ -125,7 +131,7 @@ final class changePasswordCell: UITableViewCell {
     
     private func layout() {
         addSubview(changePasswordButton)
-        changePasswordButton.addTarget(self, action: #selector(changePasswordAction), for: .valueChanged)
+        changePasswordButton.addTarget(self, action: #selector(changePasswordAction), for: .touchUpInside)
         NSLayoutConstraint.activate([
             changePasswordButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             changePasswordButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),

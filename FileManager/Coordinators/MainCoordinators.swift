@@ -9,7 +9,6 @@ import UIKit
 
 final class MainCoordinator {
     func startApplication() -> UIViewController {
-        
         if UserDefaults.standard.object(forKey: .sizeFile) == nil {
             UserDefaults.standard.set(true, forKey: .sizeFile)
             UserDefaults.standard.set(true, forKey: .sortingFile)
