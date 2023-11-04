@@ -61,7 +61,7 @@ final class FileListViewController: UIViewController {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -111,6 +111,9 @@ extension FileListViewController: UITableViewDataSource {
         if contentFolder[indexPath.row].type == .folder {
             cell.accessoryType =  .disclosureIndicator
         } else {
+            if Settings.sizeFile {
+                content.secondaryText = contentFolder[indexPath.row].size
+            }
             cell.accessoryType =  .none
             cell.isUserInteractionEnabled = false
         }
@@ -141,9 +144,28 @@ extension FileListViewController: UITableViewDelegate{
 
 extension FileListViewController:  UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        fileManagerService.createFile(imageURL: info[.imageURL] as! NSURL)
-        contentFolder = fileManagerService.contentsOfDirectory()
-        tableView.reloadData()
         dismiss(animated: true)
+        let alert = UIAlertController(title: "Name for image", message: nil, preferredStyle: .alert)
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Image name"
+        }
+        let create = UIAlertAction(title: "Create", style: .default) { (alertAction) in
+            let textField = alert.textFields![0]
+            if textField.text != "" {
+                self.fileManagerService.createFile(imageURL: info[.imageURL] as! NSURL, fileName: textField.text!)
+                self.contentFolder = self.fileManagerService.contentsOfDirectory()
+                self.tableView.reloadData()
+            } else {
+                let alertController = UIAlertController(title: "Name is empty", message: nil, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                self.present(alertController, animated: true)
+
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(create)
+        alert.addAction(cancel)
+        self.present(alert, animated: true)
+
     }
 }

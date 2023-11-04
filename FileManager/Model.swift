@@ -15,4 +15,5 @@ enum TypeOfFile {
 struct Content {
     let name: String
     let type: TypeOfFile
+    let size: String
 }

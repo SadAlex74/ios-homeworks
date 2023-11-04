@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6201F7732AF2ABDF0089D213 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6201F7722AF2ABDF0089D213 /* KeychainSwift */; };
+		6201F7762AF2C73A0089D213 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201F7752AF2C7390089D213 /* LoginViewController.swift */; };
+		6201F7792AF2D5640089D213 /* MainCoordinators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201F7782AF2D5640089D213 /* MainCoordinators.swift */; };
+		6201F77C2AF60CF40089D213 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201F77B2AF60CF40089D213 /* KeychainService.swift */; };
+		6201F77E2AF6B2290089D213 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201F77D2AF6B2290089D213 /* SettingsViewController.swift */; };
+		6201F7802AF6D2730089D213 /* SettingsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201F77F2AF6D2730089D213 /* SettingsApp.swift */; };
+		6201F7822AF6D5100089D213 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201F7812AF6D5100089D213 /* Extension.swift */; };
 		62161FD12A7FFF5C000360F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FD02A7FFF5C000360F9 /* AppDelegate.swift */; };
 		62161FD32A7FFF5C000360F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62161FD22A7FFF5C000360F9 /* SceneDelegate.swift */; };
 		62161FDA2A7FFF5D000360F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62161FD92A7FFF5D000360F9 /* Assets.xcassets */; };
@@ -98,6 +105,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6201F7752AF2C7390089D213 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6201F7782AF2D5640089D213 /* MainCoordinators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinators.swift; sourceTree = "<group>"; };
+		6201F77B2AF60CF40089D213 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		6201F77D2AF6B2290089D213 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6201F77F2AF6D2730089D213 /* SettingsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApp.swift; sourceTree = "<group>"; };
+		6201F7812AF6D5100089D213 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		62161FCD2A7FFF5C000360F9 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62161FD02A7FFF5C000360F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62161FD22A7FFF5C000360F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6201F7732AF2ABDF0089D213 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +201,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6201F7742AF2C7140089D213 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6201F7752AF2C7390089D213 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6201F7772AF2D54A0089D213 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				6201F7782AF2D5640089D213 /* MainCoordinators.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		6201F77A2AF60CE20089D213 /* KeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				6201F77B2AF60CF40089D213 /* KeychainService.swift */,
+			);
+			path = KeychainService;
+			sourceTree = "<group>";
+		};
 		62161FC42A7FFF5C000360F9 = {
 			isa = PBXGroup;
 			children = (
@@ -240,11 +278,17 @@
 		6228D9692AEEB81C000FD42A /* FileManager */ = {
 			isa = PBXGroup;
 			children = (
+				6201F77A2AF60CE20089D213 /* KeychainService */,
+				6201F7772AF2D54A0089D213 /* Coordinators */,
+				6201F7742AF2C7140089D213 /* Login */,
 				6228D97E2AEEBDE6000FD42A /* Model.swift */,
 				6228D97C2AEEBB5F000FD42A /* FileManagerService.swift */,
 				6228D96A2AEEB81C000FD42A /* AppDelegate.swift */,
 				6228D96C2AEEB81C000FD42A /* SceneDelegate.swift */,
 				6228D96E2AEEB81C000FD42A /* FileListViewController.swift */,
+				6201F77D2AF6B2290089D213 /* SettingsViewController.swift */,
+				6201F7812AF6D5100089D213 /* Extension.swift */,
+				6201F77F2AF6D2730089D213 /* SettingsApp.swift */,
 				6228D9732AEEB81D000FD42A /* Assets.xcassets */,
 				6228D9752AEEB81D000FD42A /* LaunchScreen.storyboard */,
 				6228D9782AEEB81D000FD42A /* Info.plist */,
@@ -414,6 +458,9 @@
 			dependencies = (
 			);
 			name = FileManager;
+			packageProductDependencies = (
+				6201F7722AF2ABDF0089D213 /* KeychainSwift */,
+			);
 			productName = FileManager;
 			productReference = 6228D9682AEEB81C000FD42A /* FileManager.app */;
 			productType = "com.apple.product-type.application";
@@ -492,6 +539,7 @@
 			packageReferences = (
 				629561992AB5E806001BD24B /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 				621D67832AE6FA9F002C6CF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6201F7712AF2ABDF0089D213 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 62161FCE2A7FFF5C000360F9 /* Products */;
 			projectDirPath = "";
@@ -582,11 +630,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6201F7762AF2C73A0089D213 /* LoginViewController.swift in Sources */,
 				6228D97F2AEEBDE6000FD42A /* Model.swift in Sources */,
+				6201F7792AF2D5640089D213 /* MainCoordinators.swift in Sources */,
 				6228D96F2AEEB81C000FD42A /* FileListViewController.swift in Sources */,
+				6201F7822AF6D5100089D213 /* Extension.swift in Sources */,
 				6228D96B2AEEB81C000FD42A /* AppDelegate.swift in Sources */,
+				6201F77C2AF60CF40089D213 /* KeychainService.swift in Sources */,
+				6201F7802AF6D2730089D213 /* SettingsApp.swift in Sources */,
 				6228D96D2AEEB81C000FD42A /* SceneDelegate.swift in Sources */,
 				6228D97D2AEEBB5F000FD42A /* FileManagerService.swift in Sources */,
+				6201F77E2AF6B2290089D213 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,6 +1099,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6201F7712AF2ABDF0089D213 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 		621D67832AE6FA9F002C6CF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1064,6 +1126,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6201F7722AF2ABDF0089D213 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6201F7712AF2ABDF0089D213 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
 		621D67842AE6FA9F002C6CF7 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 621D67832AE6FA9F002C6CF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -10,7 +10,7 @@ import Foundation
 protocol FileManagerServiceProtocol {
     func contentsOfDirectory() -> [Content]
     func createDirectory(name: String)
-    func createFile(imageURL: NSURL)
+    func createFile(imageURL: NSURL, fileName: String)
     func removeContent(name: String)
     func getPath(name: String) -> String
 }
@@ -37,11 +37,27 @@ final class FileManagerService: (FileManagerServiceProtocol) {
         return objCBool.boolValue ? TypeOfFile.folder : TypeOfFile.file
     }
  
+    private func getSize(_ item: String) -> String {
+        if isDirectory(item) == .file {
+            let path = pathForFolder + "/" + item
+            let attributes = try! FileManager.default.attributesOfItem(atPath: path)
+            let size = attributes[.size] as! Int / 1024
+            return "\(size) kb"
+        } else {
+            return ""
+        }
+    }
     
     func contentsOfDirectory() -> [Content] {
         let items = (try? FileManager.default.contentsOfDirectory(atPath: pathForFolder)) ?? []
-        let content = items.map{ item in
-            Content(name: item, type: isDirectory(item))
+        let content: [Content]
+        if Settings.sortingFile { content  = items.sorted().map{item in
+                Content(name: item, type: isDirectory(item), size: getSize(item))
+            }
+        } else {
+            content  = items.map{item in
+                Content(name: item, type: isDirectory(item), size: getSize(item))
+            }
         }
         return content
     }
@@ -50,9 +66,9 @@ final class FileManagerService: (FileManagerServiceProtocol) {
         try? FileManager.default.createDirectory(atPath: pathForFolder + "/" + name, withIntermediateDirectories: true)
     }
     
-    func createFile(imageURL: NSURL) {
-        let fileName = imageURL.pathComponents?.last
-        let endUrl = URL(fileURLWithPath: pathForFolder + "/" + fileName!)
+    func createFile(imageURL: NSURL, fileName: String) {
+       // let fileName = imageURL.pathComponents?.last
+        let endUrl = URL(fileURLWithPath: pathForFolder + "/" + fileName)
         try? FileManager.default.copyItem(at: imageURL as URL, to: endUrl)
     }
     
