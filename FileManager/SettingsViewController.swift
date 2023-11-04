@@ -53,14 +53,19 @@ extension SettingsViewController: UITableViewDataSource {
             return cell
         default:
             let cell = changePasswordCell(style: .default, reuseIdentifier: nil)
-            cell.isUserInteractionEnabled = false
+            //cell.isUserInteractionEnabled = false
             return cell
         }
     }
 }
 
 extension SettingsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            let vc = LoginViewController(mode: .changePassword, coordinator: MainCoordinator())
+            present(vc, animated: true)
+        }
+    }
 }
 
 final class cellSettings: UITableViewCell {
@@ -140,7 +145,8 @@ final class changePasswordCell: UITableViewCell {
     }
 
     @objc private func changePasswordAction() {
-        print("change password")
+        //let vc = LoginViewController(mode: .changePassword, coordinator: MainCoordinator())
+        
     }
 
 }
