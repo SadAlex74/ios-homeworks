@@ -101,6 +101,7 @@ final class cellSettings: UITableViewCell {
     func update(settingName: String){
         self.settingName = settingName
         self.settingNameLabel.text = settingName
+        self.settingValueSwitch.isOn = UserDefaults.standard.bool(forKey: settingName)
     }
 }
 
