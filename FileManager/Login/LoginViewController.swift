@@ -113,7 +113,12 @@ final class LoginViewController: UIViewController {
                 setupLoginButtonTitle()
             } else {
                 if password == passwordTextField.text {
-                    print("записать пароль, открыть основной экран или вернуться в окно настроек")
+                    KeychainService.default.writePassword(password: password)
+                    if mode == .createPassword {
+                        coordinator.openFileManager(navigationController: navigationController)
+                    } else {
+                        dismiss(animated: true)
+                    }
                 } else {
                     password = ""
                     passwordTextField.text = ""
