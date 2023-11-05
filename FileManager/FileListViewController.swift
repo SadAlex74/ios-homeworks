@@ -53,7 +53,7 @@ final class FileListViewController: UIViewController {
         contentFolder = fileManagerService.contentsOfDirectory()
         layout()
     }
-   
+        
     private func layout() {
         title = currentFolder
         navigationController?.navigationBar.prefersLargeTitles = true

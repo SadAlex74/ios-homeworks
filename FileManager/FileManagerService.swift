@@ -51,11 +51,12 @@ final class FileManagerService: (FileManagerServiceProtocol) {
     func contentsOfDirectory() -> [Content] {
         let items = (try? FileManager.default.contentsOfDirectory(atPath: pathForFolder)) ?? []
         let content: [Content]
-        if Settings.sortingFile { content  = items.sorted().map{item in
+        if Settings.sortingFile { 
+            content  = items.sorted(by: <).map{item in
                 Content(name: item, type: isDirectory(item), size: getSize(item))
             }
         } else {
-            content  = items.map{item in
+            content  = items.sorted(by: >).map{item in
                 Content(name: item, type: isDirectory(item), size: getSize(item))
             }
         }
