@@ -14,10 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
-        let viewController = FileListViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let mainCoordinator = MainCoordinator()
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = navigationController
+        window?.rootViewController = mainCoordinator.startApplication()
         window?.makeKeyAndVisible()
     }
 
