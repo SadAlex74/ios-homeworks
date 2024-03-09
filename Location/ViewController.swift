@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionOren(_ sender: Any) {
-        addAnnotation(latitude: 51.7727, longitude: 55.0988, title: "Orenburg")
+        addAnnotation(latitude: 51.7727, longitude: 55.0988, title: NSLocalizedString("Orenburg", comment: ""))
     }
     
     @objc private func longPress(_ gr: UIGestureRecognizer){
