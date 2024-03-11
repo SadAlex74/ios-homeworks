@@ -20,8 +20,8 @@ class FeedViewController: UIViewController {
     
     private lazy var checkWord: (() -> Void) = {
         if self.guessText.text == "" {
-            let alertController = UIAlertController(title: "Ошибка", message: "Введите предполагаемый пароль.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+            let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Guess password", comment: ""), preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
             self.present(alertController, animated: true)
             self.guessText.backgroundColor = .systemGray6
         } else {
@@ -33,7 +33,7 @@ class FeedViewController: UIViewController {
     
     private var guessText: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Введите пароль (Secret)"
+        textField.placeholder = NSLocalizedString("Write password (Secret)", comment: "")
         textField.textAlignment = .center
         textField.backgroundColor = .systemGray6
         return textField
@@ -44,14 +44,14 @@ class FeedViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.addArrangedSubview(CustomButton(title: "Показать пост", tapAction: buttonAction))
-        stackView.addArrangedSubview(CustomButton(title: "Вторая кнопка", tapAction: buttonAction))
+        stackView.addArrangedSubview(CustomButton(title: NSLocalizedString("View post", comment: ""), tapAction: buttonAction))
+        stackView.addArrangedSubview(CustomButton(title: NSLocalizedString("Second button", comment: ""), tapAction: buttonAction))
         stackView.addArrangedSubview(guessText)
-        stackView.addArrangedSubview(CustomButton(title: "Проверить пароль", tapAction: checkWord))
+        stackView.addArrangedSubview(CustomButton(title: NSLocalizedString("Check password", comment: ""), tapAction: checkWord))
         return stackView
     }()
       
-    var post = BlankPost(title: "Первый пост")
+    var post = BlankPost(title: NSLocalizedString("First post", comment: ""))
     
     init(coordinator: FeedCoordinator) {
         self.coordinator = coordinator
@@ -65,7 +65,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(feedStackView)
-        title = "Лента"
+        title = NSLocalizedString("Feeds", comment: "")
         bindeViewModel()
         setupConstraints()
     }

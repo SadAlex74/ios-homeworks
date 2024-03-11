@@ -25,7 +25,6 @@
 		621D67872AE6FA9F002C6CF7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 621D67862AE6FA9F002C6CF7 /* FirebaseFirestoreSwift */; };
 		621D67892AE6FA9F002C6CF7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 621D67882AE6FA9F002C6CF7 /* FirebaseStorage */; };
 		621D678B2AECE55F002C6CF7 /* CheckerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D678A2AECE55F002C6CF7 /* CheckerService.swift */; };
-		621D678D2AECF6BF002C6CF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 621D678C2AECF6BF002C6CF7 /* GoogleService-Info.plist */; };
 		62283C232B9CF53D00967F0E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 62283C222B9CF53D00967F0E /* Localizable.xcstrings */; };
 		62283C262B9CF70300967F0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62283C252B9CF70300967F0E /* Main.storyboard */; };
 		6228D96B2AEEB81C000FD42A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228D96A2AEEB81C000FD42A /* AppDelegate.swift */; };
@@ -61,6 +60,8 @@
 		62AD4E8E2A965D9400B7F91C /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E8D2A965D9400B7F91C /* PhotosViewController.swift */; };
 		62AD4E902A965DD600B7F91C /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E8F2A965DD600B7F91C /* PhotosCollectionViewCell.swift */; };
 		62AD4E922A96785900B7F91C /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD4E912A96785900B7F91C /* PhotosTableViewCell.swift */; };
+		62C5659A2B9F6CAB007D9427 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 62C565992B9F6CAB007D9427 /* Localizable.xcstrings */; };
+		62C5659C2B9F6ECC007D9427 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C5659B2B9F6ECC007D9427 /* GoogleService-Info.plist */; };
 		62EBF3E32AB74CAA00E84ECC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBF3E22AB74CAA00E84ECC /* CustomButton.swift */; };
 		62EBF3E62AB76FDE00E84ECC /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBF3E52AB76FDE00E84ECC /* FeedModel.swift */; };
 		62EBF3E82AB8A27900E84ECC /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBF3E72AB8A27900E84ECC /* FeedViewModel.swift */; };
@@ -129,7 +130,6 @@
 		62161FEC2A8185A6000360F9 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		62161FEE2A818A4B000360F9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		621D678A2AECE55F002C6CF7 /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
-		621D678C2AECF6BF002C6CF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62283C222B9CF53D00967F0E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		62283C242B9CF70300967F0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62283C272B9CF70300967F0E /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
@@ -167,6 +167,8 @@
 		62AD4E8D2A965D9400B7F91C /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		62AD4E8F2A965DD600B7F91C /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		62AD4E912A96785900B7F91C /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		62C565992B9F6CAB007D9427 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		62C5659B2B9F6ECC007D9427 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62EBF3E22AB74CAA00E84ECC /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		62EBF3E52AB76FDE00E84ECC /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		62EBF3E72AB8A27900E84ECC /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -291,12 +293,13 @@
 				62161FD92A7FFF5D000360F9 /* Assets.xcassets */,
 				62161FDB2A7FFF5D000360F9 /* LaunchScreen.storyboard */,
 				62161FDE2A7FFF5D000360F9 /* Info.plist */,
-				621D678C2AECF6BF002C6CF7 /* GoogleService-Info.plist */,
+				62C5659B2B9F6ECC007D9427 /* GoogleService-Info.plist */,
 				62161FEE2A818A4B000360F9 /* InfoViewController.swift */,
 				629E3EDD2ADF24FB0025C444 /* ResidentsTableViewCell.swift */,
 				62EBF3E22AB74CAA00E84ECC /* CustomButton.swift */,
 				62ED234F2AC5D39B0024C449 /* AppError.swift */,
 				629E3ED42AD4722A0025C444 /* AppConfiguration.swift */,
+				62C565992B9F6CAB007D9427 /* Localizable.xcstrings */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -568,7 +571,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					62161FCC2A7FFF5C000360F9 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -622,8 +625,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				62161FDD2A7FFF5D000360F9 /* LaunchScreen.storyboard in Resources */,
+				62C5659C2B9F6ECC007D9427 /* GoogleService-Info.plist in Resources */,
 				62161FDA2A7FFF5D000360F9 /* Assets.xcassets in Resources */,
-				621D678D2AECF6BF002C6CF7 /* GoogleService-Info.plist in Resources */,
+				62C5659A2B9F6CAB007D9427 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +810,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -867,6 +872,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -943,9 +949,10 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -974,9 +981,10 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
