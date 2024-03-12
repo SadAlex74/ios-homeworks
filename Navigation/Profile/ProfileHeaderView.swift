@@ -144,8 +144,8 @@ class ProfileHeaderView: UIView {
         if statusText != "" {
             statusLabel.text = statusText
         } else {
-            let alertController = UIAlertController(title: "Изменение статуса", message: "Не указан новый статус!", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+            let alertController = UIAlertController(title: NSLocalizedString("Change status", comment: ""), message: NSLocalizedString("Write new statas", comment: ""), preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
             self.window?.rootViewController?.present(alertController, animated: true)
         }
     }

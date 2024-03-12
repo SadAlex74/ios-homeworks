@@ -52,7 +52,7 @@ class PhotosViewController: UIViewController {
         do {
             try photos = getArrayPhoto() }
         catch {
-            let alertController = UIAlertController(title: "Ошибка", message: "Изображения не найдны", preferredStyle: .alert)
+            let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Images not found", comment: ""), preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
             present(alertController, animated: true)
         }
