@@ -23,27 +23,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="Show my location" translatesAutoresizingMaskIntoConstraints="NO" id="vYP-ef-mLD">
-                                <rect key="frame" x="173" y="787" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <accessibility key="accessibilityConfiguration" label="Show my location">
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
-                                <connections>
-                                    <action selector="changeUserLocationSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="3P6-E6-GFX"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show my location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fot-1n-FJN">
-                                <rect key="frame" x="16" y="758" width="361" height="21"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <rect key="frame" x="16" y="758" width="361" height="35"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAc-Nd-n5Z">
-                                <rect key="frame" x="148" y="715" width="97" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="73" y="715" width="246" height="35"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Orenburg" cornerStyle="large">
                                     <backgroundConfiguration key="background">
@@ -54,6 +44,16 @@
                                     <action selector="actionOren:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NZo-da-Cx6"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" title="Show my location" translatesAutoresizingMaskIntoConstraints="NO" id="vYP-ef-mLD">
+                                <rect key="frame" x="312" y="760" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Show my location">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <action selector="changeUserLocationSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="3P6-E6-GFX"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

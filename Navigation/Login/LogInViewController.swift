@@ -43,7 +43,7 @@ class LogInViewController: UIViewController {
     
     private lazy var emailTextField: TextFieldWithPadding = { [unowned self] in
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Email"
+        textField.placeholder = NSLocalizedString("Email", comment: "")
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
@@ -55,7 +55,7 @@ class LogInViewController: UIViewController {
     
     private lazy var passwordTextField: TextFieldWithPadding = { [unowned self] in
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Password (minimum 6 simbols)"
+        textField.placeholder = NSLocalizedString("Password (minimum 6 simbols)", comment: "")
         textField.isSecureTextEntry = true
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
@@ -90,7 +90,7 @@ class LogInViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
-        button.setTitle("Log In", for: .normal)
+        button.setTitle(NSLocalizedString("Log In", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.isEnabled = false
@@ -216,14 +216,14 @@ class LogInViewController: UIViewController {
         var message: String
         switch error {
         case .unouthorized:
-            message = "Неверно указан пароль"
+            message = NSLocalizedString("Wrong password", comment: "")
         case .userNotFound:
-            message = "Пользователь не найден"
+            message = NSLocalizedString("User not found", comment: "")
         default:
             preconditionFailure("Кроме уже обработанных вариантов других быть не может")
         }
-        let alertController = UIAlertController(title: "Ошибка авторизации", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        let alertController = UIAlertController(title: NSLocalizedString("Wrong password", comment: ""), message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
         present(alertController, animated: true)
     }
     

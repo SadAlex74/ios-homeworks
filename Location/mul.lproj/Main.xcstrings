@@ -1,0 +1,96 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "fot-1n-FJN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Show my location\"; ObjectID = \"fot-1n-FJN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show my location"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать мою локацию"
+          }
+        }
+      }
+    },
+    "uAc-Nd-n5Z.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Orenburg\"; ObjectID = \"uAc-Nd-n5Z\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Orenburg"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оренбург"
+          }
+        }
+      }
+    },
+    "uAc-Nd-n5Z.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"uAc-Nd-n5Z\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кнопка"
+          }
+        }
+      }
+    },
+    "vYP-ef-mLD.accessibilityLabel" : {
+      "comment" : "Class = \"UISwitch\"; accessibilityLabel = \"Show my location\"; ObjectID = \"vYP-ef-mLD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show my location"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать мою локацию"
+          }
+        }
+      }
+    },
+    "vYP-ef-mLD.title" : {
+      "comment" : "Class = \"UISwitch\"; title = \"Show my location\"; ObjectID = \"vYP-ef-mLD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show my location"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать мою локацию"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
